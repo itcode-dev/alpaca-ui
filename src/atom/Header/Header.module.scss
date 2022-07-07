@@ -1,0 +1,23 @@
+.header {
+	position: fixed;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+
+	transition: var(--delay);
+
+	&.light {
+		background-color: var(--light-background);
+		border-bottom: 1px solid var(--light-border);
+	}
+
+	&.dark {
+		background-color: var(--dark-accent);
+		border-bottom: 1px solid var(--dark-border);
+		color: var(--dark-color);
+	}
+
+	&.transparent {
+		background-color: transparent;
+	}
+}

@@ -1,0 +1,32 @@
+:root {
+	--light-background: white;
+	--light-accent: #F5F5F5;
+	--light-border: #DCDCDC;
+	--light-color: black;
+	--light-subcolor: grey;
+
+	--dark-background: #010409;
+	--dark-accent: #161B22;
+	--dark-border: #21262D;
+	--dark-color: white;
+	--dark-subcolor: gainsboro;
+
+	--delay: 0.3s;
+
+	transition: var(--delay);
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
+		margin: initial;
+	}
+
+	&.dark {
+		background-color: var(--dark-background);
+		color: var(--dark-color);
+	}
+}

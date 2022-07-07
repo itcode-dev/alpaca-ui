@@ -1,0 +1,16 @@
+html,
+body {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.root {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.row {
+	display: flex;
+	gap: 20px;
+}
