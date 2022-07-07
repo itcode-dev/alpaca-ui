@@ -1,0 +1,15 @@
+.sidebar {
+	position: fixed;
+	top: 0px;
+	height: 100%;
+
+	background-color: red;
+
+	&.left {
+		left: 0px;
+	}
+
+	&.right {
+		right: 0px;
+	}
+}
