@@ -20,15 +20,22 @@ import { Context } from '../../common/context';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Sidebar({ direction, open, theme, children, className, ...props }: SidebarProps): JSX.Element
+export default function Sidebar({ direction = 'right', open, size = 'normal', theme, children, className, ...props }: SidebarProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
 	const ctx = useContext(Context);
-	const openClass = open ? 'open' : 'close';
+
+	let openClass;
+
+	// open의 값이 undefined가 아닐 경우
+	if (open !== undefined)
+	{
+		openClass = open ? 'open' : 'close';
+	}
 
 	return (
-		<aside className={cn('sidebar', theme || ctx?.theme || 'light', direction, openClass, className)} {...props}>
+		<aside className={cn('sidebar', direction, openClass, size, theme || ctx?.theme || 'light', className)} {...props}>
 			{children}
 		</aside>
 	);

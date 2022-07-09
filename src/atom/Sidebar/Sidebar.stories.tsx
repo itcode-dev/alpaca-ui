@@ -42,7 +42,9 @@ function getTemplate(args: SidebarProps): ComponentStory<typeof Sidebar>
 
 export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
-	children: 'asdfa',
+	children: 'Sidebar Test',
 	direction: 'left',
+	open: undefined,
+	size: 'normal',
 	theme: 'light'
 } as SidebarProps;

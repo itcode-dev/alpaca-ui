@@ -10,10 +10,12 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 import { Theme } from '../../common/context';
 
 export type SidebarDirection = 'left' | 'right'
+export type SidebarSize = 'small' | 'normal' | 'large' | 'xlarge'
 
 export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 {
 	direction: SidebarDirection
 	open?: boolean
+	size?: SidebarSize
 	theme?: Theme
 }

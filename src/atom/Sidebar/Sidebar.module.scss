@@ -1,8 +1,42 @@
+@mixin size-codegen($size) {
+	&.#{$size} {
+		width: var(--#{$size});
+
+		&.left {
+			left: calc(var(--#{$size}) * -1);
+
+			&.open {
+				left: 0px;
+			}
+
+			&.close {
+				left: calc(var(--#{$size}) * -1);
+			}
+		}
+
+		&.right {
+			right: calc(var(--#{$size}) * -1);
+
+			&.open {
+				right: 0px;
+			}
+
+			&.close {
+				right: calc(var(--#{$size}) * -1);
+			}
+		}
+	}
+}
+
 .sidebar {
+	--small: 150px;
+	--normal: 200px;
+	--large: 250px;
+	--xlarge: 300px;
+
 	position: fixed;
 	top: 0px;
 	height: 100%;
-	overflow: hidden;
 
 	background-color: red;
 
@@ -18,17 +52,11 @@
 		background-color: var(--dark-accent);
 		border-left: 1px solid var(--dark-border);
 		border-right: 1px solid var(--dark-border);
+		color: var(--dark-color);
 	}
 
-	&.left {
-		left: 0px;
-	}
-
-	&.right {
-		right: 0px;
-	}
-
-	&.open {}
-
-	&.close {}
+	@include size-codegen('small');
+	@include size-codegen('normal');
+	@include size-codegen('large');
+	@include size-codegen('xlarge');
 }
