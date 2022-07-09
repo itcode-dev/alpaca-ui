@@ -6,21 +6,14 @@
  */
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import { IconType } from 'react-icons';
 
 import { Theme } from '../../common/context';
 
 export type SidebarDirection = 'left' | 'right'
 
-export interface Menu
-{
-	icon?: IconType
-	title: string
-	url: string
-}
-
 export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 {
 	direction: SidebarDirection
+	open?: boolean
 	theme?: Theme
 }

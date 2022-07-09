@@ -2,8 +2,23 @@
 	position: fixed;
 	top: 0px;
 	height: 100%;
+	overflow: hidden;
 
 	background-color: red;
+
+	transition: var(--delay);
+
+	&.light {
+		background-color: var(--light-background);
+		border-left: 1px solid var(--light-border);
+		border-right: 1px solid var(--light-border);
+	}
+
+	&.dark {
+		background-color: var(--dark-accent);
+		border-left: 1px solid var(--dark-border);
+		border-right: 1px solid var(--dark-border);
+	}
 
 	&.left {
 		left: 0px;
@@ -12,4 +27,8 @@
 	&.right {
 		right: 0px;
 	}
+
+	&.open {}
+
+	&.close {}
 }
