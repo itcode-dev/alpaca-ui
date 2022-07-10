@@ -6,11 +6,12 @@
  */
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import classNames from 'classnames/bind';
 import React from 'react';
 
 import { HeaderProps } from './Header.types';
 
-import AlpacaProvider from '../AlpacaProvider';
+import styles from '../../stories.module.scss';
 
 import Header from '.';
 
@@ -18,6 +19,8 @@ export default {
 	component: Header,
 	title: 'Atom/Header'
 } as ComponentMeta<typeof Header>;
+
+const cn = classNames.bind(styles);
 
 /**
  * 템플릿 반환 메서드
@@ -29,7 +32,9 @@ export default {
 function getTemplate(args: HeaderProps): ComponentStory<typeof Header>
 {
 	return (
-		<Header {...args} />
+		<section className={cn('root', args.theme, 'header')}>
+			<Header {...args} />
+		</section>
 	);
 }
 
@@ -40,46 +45,26 @@ Sandbox.args = {
 	transparent: false
 } as HeaderProps;
 
-export function Light(): JSX.Element
+/**
+ * 투명 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Transparent(): JSX.Element
 {
 	return (
-		<AlpacaProvider>
-			<Header>
-				<h1>Header Light Theme</h1>
-			</Header>
-		</AlpacaProvider>
-	);
-}
+		<section>
+			<div className={cn('root', 'header')}>
+				<Header transparent>
+					<h1>Header Light Transparent Theme</h1>
+				</Header>
+			</div>
 
-export function Dark(): JSX.Element
-{
-	return (
-		<AlpacaProvider value={{ theme: 'dark' }}>
-			<Header>
-				<h1>Header Dark Theme</h1>
-			</Header>
-		</AlpacaProvider>
-	);
-}
-
-export function LightTransparent(): JSX.Element
-{
-	return (
-		<AlpacaProvider>
-			<Header transparent>
-				<h1>Header Light Transparent Theme</h1>
-			</Header>
-		</AlpacaProvider>
-	);
-}
-
-export function DarkTransparent(): JSX.Element
-{
-	return (
-		<AlpacaProvider value={{ theme: 'dark' }}>
-			<Header transparent>
-				<h1>Header Dark Transparent Theme</h1>
-			</Header>
-		</AlpacaProvider>
+			<div className={cn('root', 'dark', 'header')}>
+				<Header theme='dark' transparent>
+					<h1>Header Dark Transparent Theme</h1>
+				</Header>
+			</div>
+		</section>
 	);
 }
