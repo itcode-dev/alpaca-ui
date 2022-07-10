@@ -22,6 +22,10 @@ body {
 		padding: initial;
 		height: 200px;
 	}
+
+	&.full {
+		height: 100vh;
+	}
 }
 
 .row {
