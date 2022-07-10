@@ -14,6 +14,7 @@ export type SidebarSize = 'small' | 'normal' | 'large' | 'xlarge'
 
 export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 {
+	dimmer?: boolean
 	direction: SidebarDirection
 	open?: boolean
 	size?: SidebarSize

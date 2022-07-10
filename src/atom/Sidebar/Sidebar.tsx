@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames/bind';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import styles from './Sidebar.module.scss';
 import { SidebarProps } from './Sidebar.types';
@@ -20,23 +20,39 @@ import { Context } from '../../common/context';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Sidebar({ direction = 'right', open, size = 'normal', theme, children, className, ...props }: SidebarProps): JSX.Element
+export default function Sidebar({ dimmer, direction = 'right', open, size = 'normal', theme, children, className, id, ...props }: SidebarProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
 	const ctx = useContext(Context);
 
-	let openClass;
+	const [ isOpen, setOpen ] = useState(open);
 
-	// open의 값이 undefined가 아닐 경우
-	if (open !== undefined)
+	useEffect(() => setOpen(open), [ open ]);
+
+	const handleWrapperClick = () =>
 	{
-		openClass = open ? 'open' : 'close';
-	}
+		// 사이드바가 열려있을 경우
+		if (isOpen)
+		{
+			setOpen(false);
+		}
+	};
 
 	return (
-		<aside className={cn('sidebar', direction, openClass, size, theme || ctx?.theme || 'light', className)} {...props}>
-			{children}
+		<aside {...(id && { id: `${id}-wrapper` })}>
+			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctx?.theme || 'light', className)} id={id} {...props}>
+				{children}
+			</div>
+
+			<div
+				className={cn('sidebar-dimmer', {
+					close: !isOpen,
+					dimmer,
+					open: isOpen
+				})}
+				onClick={handleWrapperClick}
+			/>
 		</aside>
 	);
 }

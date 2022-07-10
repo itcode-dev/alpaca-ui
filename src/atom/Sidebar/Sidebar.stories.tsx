@@ -44,7 +44,7 @@ export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
 	children: 'Sidebar Test',
 	direction: 'left',
-	open: undefined,
+	open: true,
 	size: 'normal',
 	theme: 'light'
 } as SidebarProps;
