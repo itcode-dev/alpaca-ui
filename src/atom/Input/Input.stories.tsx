@@ -90,6 +90,54 @@ export function Border(): JSX.Element
 }
 
 /**
+ * 비활성화 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Disabled(): JSX.Element
+{
+	return (
+		<section>
+			<div className={cn('root')}>
+				<div className={cn('row')}>
+					<Input border='flat' disabled />
+				</div>
+			</div>
+
+			<div className={cn('root', 'dark')}>
+				<div className={cn('row')}>
+					<Input border='flat' theme='dark' disabled />
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/**
+ * 에러 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Error(): JSX.Element
+{
+	return (
+		<section>
+			<div className={cn('root')}>
+				<div className={cn('row')}>
+					<Input border='flat' error />
+				</div>
+			</div>
+
+			<div className={cn('root', 'dark')}>
+				<div className={cn('row')}>
+					<Input border='flat' theme='dark' error />
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/**
  * 아이콘 예시 JSX 반환 메서드
  *
  * @returns {JSX.Element} JSX
@@ -123,6 +171,30 @@ export function Icon(): JSX.Element
 
 				<div className={cn('row')}>
 					<Input icon={<MdOutlineFileDownloadDone />} theme='dark' />
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/**
+ * 필수 조건 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Required(): JSX.Element
+{
+	return (
+		<section>
+			<div className={cn('root')}>
+				<div className={cn('row')}>
+					<Input border='flat' required />
+				</div>
+			</div>
+
+			<div className={cn('root', 'dark')}>
+				<div className={cn('row')}>
+					<Input border='flat' theme='dark' required />
 				</div>
 			</div>
 		</section>

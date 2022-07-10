@@ -62,7 +62,7 @@ export default function Input({ border, error, icon, theme, className, disabled,
 
 			<input disabled={disabled} id={id} ref={ref} required={required} onChange={handleChange} {...props} />
 
-			{isEmpty ? null : (
+			{isEmpty || disabled ? null : (
 				<button onClick={handleClick}>
 					<IoIosClose />
 				</button>
