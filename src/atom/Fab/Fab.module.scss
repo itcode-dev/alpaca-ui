@@ -1,0 +1,31 @@
+.fab {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+
+	position: absolute;
+	padding: 15px 20px;
+
+	border-radius: 100px;
+	font-size: 1rem;
+
+	transition: var(--delay);
+
+	cursor: pointer;
+
+	&.light {
+		background-color: var(--light-background);
+		border: 1px solid var(--light-border);
+	}
+
+	&.dark {
+		background-color: var(--dark-accent);
+		border: 1px solid var(--dark-border);
+		color: var(--dark-color);
+	}
+
+	&:hover {
+		opacity: 0.6;
+	}
+}
