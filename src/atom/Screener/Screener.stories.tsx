@@ -43,6 +43,11 @@ Sandbox.args = {
 	width: '100%'
 } as ScreenerProps;
 
+/**
+ * 랜덤 배경 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
 export function Random(): JSX.Element
 {
 	const list: MediaProps[] = [
