@@ -51,6 +51,7 @@ export default function Screener({ title, accent, subtitle, media, width, height
 
 	useEffect(() =>
 	{
+		// 미디어 프로퍼티 값이 배열이 아닐 경우
 		if (Array.isArray(media))
 		{
 			const index = Math.floor(Math.random() * media.length);
