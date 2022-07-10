@@ -15,6 +15,7 @@ export type InputBorder = 'flat' | 'round' | 'circle'
 export interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 {
 	border?: InputBorder
+	error?: boolean
 	icon?: IconType
 	theme?: Theme
 }

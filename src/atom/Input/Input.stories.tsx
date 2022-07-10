@@ -44,6 +44,8 @@ function getTemplate(args: InputProps): ComponentStory<typeof Input>
 export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
 	border: 'flat',
+	disabled: false,
+	required: false,
 	theme: 'light'
 } as InputProps;
 

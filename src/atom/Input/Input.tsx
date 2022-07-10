@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames/bind';
-import { ChangeEvent, MouseEvent, useContext, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, useContext, useRef, useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
 
 import styles from './Input.module.scss';
@@ -14,7 +14,7 @@ import { InputProps } from './Input.types';
 
 import { Context } from '../../common/context';
 
-export default function Input({ border, icon, theme, className, id, onChange, ...props }: InputProps): JSX.Element
+export default function Input({ border, error, icon, theme, className, disabled, id, onChange, required, ...props }: InputProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
@@ -41,7 +41,6 @@ export default function Input({ border, icon, theme, className, id, onChange, ..
 		if (setEmpty !== (e.target.value.length === 0))
 		{
 			setEmpty(e.target.value.length === 0);
-			console.dir(234);
 		}
 
 		if (onChange)
@@ -51,10 +50,17 @@ export default function Input({ border, icon, theme, className, id, onChange, ..
 	};
 
 	return (
-		<div className={cn('input', border, theme || ctx?.theme || 'light', className)} id={`${id}-wrapper`}>
+		<div
+			className={cn('input-wrapper', border, theme || ctx?.theme || 'light', {
+				disabled,
+				error,
+				required
+			}, className)}
+			{...(id && { id: `${id}-wrapper` })}
+		>
 			{icon || null}
 
-			<input id={id} ref={ref} onChange={handleChange} {...props} />
+			<input disabled={disabled} id={id} ref={ref} required={required} onChange={handleChange} {...props} />
 
 			{isEmpty ? null : (
 				<button onClick={handleClick}>

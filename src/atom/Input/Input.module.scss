@@ -1,4 +1,4 @@
-.input {
+.input-wrapper {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -27,6 +27,18 @@
 		background-color: var(--dark-accent);
 		border: 1px solid var(--dark-border);
 		color: var(--dark-color);
+	}
+
+	&.required {
+		border-color: dodgerblue;
+	}
+
+	&.error {
+		border-color: orangered;
+	}
+
+	&.disabled {
+		opacity: 0.6;
 	}
 
 	input {
