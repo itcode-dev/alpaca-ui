@@ -1,0 +1,58 @@
+.input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+
+	padding: 0px 7px;
+
+	box-sizing: border-box;
+	transition: var(--delay);
+
+	&.round {
+		border-radius: 10px;
+	}
+
+	&.circle {
+		border-radius: 100px;
+		padding: 0px 12px;
+	}
+
+	&.light {
+		background-color: var(--light-accent);
+		border: 1px solid var(--light-border);
+	}
+
+	&.dark {
+		background-color: var(--dark-accent);
+		border: 1px solid var(--dark-border);
+		color: var(--dark-color);
+	}
+
+	input {
+		flex: 1;
+
+		background: transparent;
+		border: transparent;
+		outline: none;
+
+		padding: 5px;
+
+		color: inherit;
+		font-size: inherit;
+	}
+
+	button {
+		display: flex;
+		align-items: center;
+
+		background: transparent;
+		border: transparent;
+		padding: 0px;
+
+		color: inherit;
+		font-size: 1rem;
+
+		cursor: pointer;
+	}
+}
