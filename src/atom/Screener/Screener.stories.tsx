@@ -6,15 +6,20 @@
  */
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import classNames from 'classnames/bind';
 import React from 'react';
 
 import Screener from './Screener';
 import { MediaProps, ScreenerProps } from './Screener.types';
 
+import styles from '../../stories.module.scss';
+
 export default {
 	component: Screener,
 	title: 'Atom/Screener'
 } as ComponentMeta<typeof Screener>;
+
+const cn = classNames.bind(styles);
 
 /**
  * 템플릿 반환 메서드
@@ -26,7 +31,37 @@ export default {
 function getTemplate(args: ScreenerProps): ComponentStory<typeof Screener>
 {
 	return (
-		<Screener {...args} />
+		<section className={cn('root')}>
+			<Screener {...args} />
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+		</section>
 	);
 }
 
@@ -70,11 +105,41 @@ export function Random(): JSX.Element
 	];
 
 	return (
-		<Screener
-			accent='다른 페이지로 갔다오거나 새로고침하면'
-			media={list}
-			subtitle='배경이 바뀌어요!'
-			title='랜덤 배경 효과'
-		/>
+		<section className={cn('root')}>
+			<Screener
+				accent='다른 페이지로 갔다오거나 새로고침하면'
+				media={list}
+				subtitle='배경이 바뀌어요!'
+				title='랜덤 배경 효과'
+			/>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+
+			<div className={cn('row')}>
+				<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro obcaecati repudiandae sapiente sunt similique neque odio dolorem, ducimus magni molestiae dignissimos ut esse ad. Iure vel repellendus consequuntur repellat veniam!</p>
+			</div>
+		</section>
 	);
 }
