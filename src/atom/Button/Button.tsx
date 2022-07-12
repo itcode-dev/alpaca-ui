@@ -27,6 +27,6 @@ export default function Button({ border = 'flat', color = 'basic', theme, classN
 	const ctx = useContext(Context);
 
 	return (
-		<button className={cn('button', theme || ctx?.theme || 'light', `border-${border}`, `color-${color}`, className)} {...props} />
+		<button className={cn('button', theme || ctx?.theme || 'light', `border-${border}`, `color-${color}`, className)} data-name='Button' {...props} />
 	);
 }
