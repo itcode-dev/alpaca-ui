@@ -20,6 +20,6 @@ export default function Header({ transparent, theme, className, ...props }: Head
 	const ctx = useContext(Context);
 
 	return (
-		<header className={cn('header', theme || ctx?.theme || 'light', { transparent }, className)} {...props} />
+		<header className={cn('header', theme || ctx?.theme || 'light', { transparent }, className)} data-name='Header' {...props} />
 	);
 }
