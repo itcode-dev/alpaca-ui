@@ -9,7 +9,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import Button, { ButtonProps } from './Button';
+import Button from './Button';
+import { ButtonProps } from './Button.types';
 
 import styles from '../../stories.module.scss';
 
@@ -30,7 +31,7 @@ const cn = classNames.bind(styles);
 function getTemplate(args: ButtonProps): ComponentStory<typeof Button>
 {
 	return (
-		<section className={cn('root')}>
+		<section className={cn('root', args.theme)}>
 			<div className={cn('row')}>
 				<Button {...args} />
 			</div>
@@ -43,7 +44,8 @@ Sandbox.args = {
 	border: 'flat',
 	children: 'Button',
 	color: 'basic',
-	disabled: false
+	disabled: false,
+	theme: 'light'
 } as ButtonProps;
 
 /**
@@ -72,14 +74,25 @@ export function Border(): JSX.Element
 export function Color(): JSX.Element
 {
 	return (
-		<section className={cn('root')}>
-			<div className={cn('row')}>
-				<Button color='basic'>basic</Button>
-				<Button color='primary'>primary</Button>
-				<Button color='submit'>submit</Button>
-				<Button color='warn'>warn</Button>
-				<Button color='error'>error</Button>
-				<Button color='reverse'>reverse</Button>
+		<section>
+			<div className={cn('root')}>
+				<div className={cn('row')}>
+					<Button color='basic'>basic</Button>
+					<Button color='primary'>primary</Button>
+					<Button color='submit'>submit</Button>
+					<Button color='warn'>warn</Button>
+					<Button color='error'>error</Button>
+				</div>
+			</div>
+
+			<div className={cn('root', 'dark')}>
+				<div className={cn('row')}>
+					<Button color='basic' theme='dark'>basic</Button>
+					<Button color='primary' theme='dark'>primary</Button>
+					<Button color='submit' theme='dark'>submit</Button>
+					<Button color='warn' theme='dark'>warn</Button>
+					<Button color='error' theme='dark'>error</Button>
+				</div>
 			</div>
 		</section>
 	);

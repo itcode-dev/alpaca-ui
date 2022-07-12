@@ -6,18 +6,12 @@
  */
 
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import styles from './Button.module.scss';
+import { ButtonProps } from './Button.types';
 
-export type ButtonBorderType = 'flat' | 'round' | 'circle'
-export type ButtonColorType = 'basic' | 'primary' | 'submit' | 'warn' | 'error' | 'reverse'
-
-export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
-{
-	border?: ButtonBorderType
-	color?: ButtonColorType
-}
+import { Context } from '../../common/context';
 
 const cn = classNames.bind(styles);
 
@@ -28,9 +22,11 @@ const cn = classNames.bind(styles);
  *
  * @returns {JSX.Element} JSX
  */
-export default function Button({ border = 'flat', color = 'basic', className, ...props }: ButtonProps): JSX.Element
+export default function Button({ border = 'flat', color = 'basic', theme, className, ...props }: ButtonProps): JSX.Element
 {
+	const ctx = useContext(Context);
+
 	return (
-		<button className={cn(className, 'button', `border-${border}`, `color-${color}`)} {...props} />
+		<button className={cn('button', theme || ctx?.theme || 'light', `border-${border}`, `color-${color}`, className)} {...props} />
 	);
 }
