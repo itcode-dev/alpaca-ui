@@ -40,7 +40,7 @@ export default function Sidebar({ dimmer, direction = 'right', open, size = 'nor
 	};
 
 	return (
-		<aside {...(id && { id: `${id}-wrapper` })}>
+		<aside {...(id && { id: `${id}-wrapper` })} data-name='Sidebar'>
 			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctx?.theme || 'light', className)} id={id} {...props}>
 				{children}
 			</div>
