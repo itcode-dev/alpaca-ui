@@ -10,7 +10,7 @@ import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 import { Theme } from '../../common/context';
 
 export type ButtonBorderType = 'flat' | 'round' | 'circle'
-export type ButtonColorType = 'basic' | 'primary' | 'submit' | 'warn' | 'error' | 'reverse'
+export type ButtonColorType = 'basic' | 'primary' | 'submit' | 'warn' | 'error'
 
 export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 {
