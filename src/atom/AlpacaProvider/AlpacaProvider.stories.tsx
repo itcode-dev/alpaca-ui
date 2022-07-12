@@ -6,11 +6,10 @@
  */
 
 import { ComponentMeta } from '@storybook/react';
-import classNames from 'classnames/bind';
-import React, { useState } from 'react';
+import React, { CSSProperties, useState } from 'react';
 
 import { ContextProps, Theme } from '../../common/context';
-import styles from '../../stories.module.scss';
+import Button from '../Button/Button';
 
 import AlpacaProvider from '.';
 
@@ -18,8 +17,6 @@ export default {
 	component: AlpacaProvider,
 	title: 'Atom/AlpacaProvider'
 } as ComponentMeta<typeof AlpacaProvider>;
-
-const cn = classNames.bind(styles);
 
 /**
  * 예시 JSX 반환 메서드
@@ -38,13 +35,21 @@ export function Example(): JSX.Element
 		setState({ theme: changeTheme });
 	};
 
+	const style: CSSProperties = {
+		alignItems: 'center',
+		display: 'flex',
+		flexDirection: 'column',
+		gap: '20px',
+		height: '100vh',
+		justifyContent: 'center'
+	};
+
 	return (
-		<section className={cn('root')}>
-			<div className={cn('row')}>
-				<AlpacaProvider value={state}>
-					<button onClick={() => handleClick(state.theme)}>{state.theme}</button>
-				</AlpacaProvider>
+		<AlpacaProvider value={state}>
+			<div style={style}>
+				<Button onClick={() => handleClick(state.theme)}>{state.theme}</Button>
+				<p>위 버튼을 누르면 테마 모드가 변경됩니다.</p>
 			</div>
-		</section>
+		</AlpacaProvider>
 	);
 }
