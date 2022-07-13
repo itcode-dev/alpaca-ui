@@ -7,7 +7,7 @@
 
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 
-export interface CategoryItemProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+export interface CategoryItemProps extends Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'children'>
 {
 	category: string
 	name?: string
