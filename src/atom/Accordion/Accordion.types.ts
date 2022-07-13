@@ -17,5 +17,6 @@ export interface AccordionProps extends DetailedHTMLProps<ButtonHTMLAttributes<H
 	open?: boolean
 	direction?: AccordionDirection
 	transparent?: boolean
+	round?: boolean
 	theme?: Theme
 }
