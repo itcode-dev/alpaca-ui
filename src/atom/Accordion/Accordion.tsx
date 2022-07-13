@@ -14,7 +14,7 @@ import { AccordionProps } from './Accordion.types';
 
 import { Context } from '../../common/context';
 
-export default function Accordion({ title, open, direction = 'left', transparent, theme, children, className, ...props }: AccordionProps): JSX.Element
+export default function Accordion({ title, open, direction = 'left', transparent, round, theme, children, className, onClick, ...props }: AccordionProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 	const ctx = useContext(Context);
@@ -26,33 +26,43 @@ export default function Accordion({ title, open, direction = 'left', transparent
 		setOpen(open);
 	}, [ open ]);
 
+	const handleClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) =>
+	{
+		setOpen(!isOpen);
+
+		if (onClick)
+		{
+			onClick(e);
+		}
+	};
+
+	const svg = (
+		<div className={cn('accordion-svg')}>
+			<IoMdArrowDropdown />
+		</div>
+	);
+
 	return (
 		<div
 			data-name='Accordion'
 			className={cn('accordion', theme || ctx?.theme || 'light', {
+				close: isOpen === false,
 				direction,
 				open: isOpen,
+				round,
 				transparent
 			}, className)}
 			{...props}
 		>
-			<button>
-				{direction === 'left' ? (
-					<div>
-						<IoMdArrowDropdown />
-					</div>
-				) : null}
+			<button className={cn('accordion-button')} onClick={handleClick}>
+				{direction === 'left' ? svg : null}
 
-				<div>{title}</div>
+				<div className={cn('accordion-title')}>{title}</div>
 
-				{direction === 'right' ? null : (
-					<div>
-						<IoMdArrowDropdown />
-					</div>
-				)}
+				{direction === 'right' ? svg : null}
 			</button>
 
-			<div>
+			<div className={cn('accordion-body')}>
 				{children}
 			</div>
 		</div>
