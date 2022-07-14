@@ -17,7 +17,7 @@ import { Context } from '../../common/context';
 /**
  * Accordion 컴포넌트 JSX 반환 메서드
  *
- * @param {AccordionProps} props: AccordionProps 객체
+ * @param {AccordionProps} props: AccordionProps 인터페이스
  *
  * @returns {JSX.Element} JSX
  */
