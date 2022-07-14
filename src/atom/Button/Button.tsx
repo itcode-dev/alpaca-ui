@@ -16,7 +16,7 @@ import { Context } from '../../common/context';
 /**
  * 버튼 컴포넌트 JSX 반환 메서드
  *
- * @param {ButtonProps} param0: ButtonProps 객체
+ * @param {ButtonProps} param0: ButtonProps 인터페이스
  *
  * @returns {JSX.Element} JSX
  */
