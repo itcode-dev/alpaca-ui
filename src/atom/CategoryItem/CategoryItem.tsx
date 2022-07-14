@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames/bind';
-import { MouseEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
 import styles from './CategoryItem.module.scss';
@@ -19,7 +19,7 @@ import { CategoryItemProps } from './CategoryItem.types';
  *
  * @returns {JSX.Element} JSX
  */
-export default function CategoryItem({ category, name, image, count, simplify, isCheck, onClick, ...props }: CategoryItemProps): JSX.Element
+export default function CategoryItem({ category, name, image, count, simplify, isCheck, onSelect, ...props }: CategoryItemProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
@@ -31,14 +31,14 @@ export default function CategoryItem({ category, name, image, count, simplify, i
 	}, [ isCheck, setChecked ]);
 
 	// 카테고리 아이템 클릭 시 체크 on/off 이벤트
-	const handleClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) =>
+	const handleClick = () =>
 	{
-		setChecked(isChecked === undefined ? true : !isChecked);
+		setChecked(!isChecked);
 
 		// 클릭 이벤트가 있을 경우
-		if (onClick)
+		if (onSelect)
 		{
-			onClick(e);
+			onSelect(!isChecked);
 		}
 	};
 
