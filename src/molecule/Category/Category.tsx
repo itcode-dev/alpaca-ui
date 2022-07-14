@@ -15,6 +15,13 @@ import Accordion from '../../atom/Accordion';
 import CategoryItem from '../../atom/CategoryItem';
 import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 
+/**
+ * 카테고리 컴포넌트 JSX 반환 메서드
+ *
+ * @param {CategoryProps} param0: CategoryProps 인터페이스
+ *
+ * @returns {JSX.Element} JSX
+ */
 export default function Category({ open, title, list, theme, onSelectCategory }: CategoryProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
@@ -27,15 +34,18 @@ export default function Category({ open, title, list, theme, onSelectCategory }:
 		<p>경고</p>
 	);
 
+	// 카테고리 선택 이벤트
 	const handleSelect = (isCheck: boolean, category: CategoryItemProps) =>
 	{
 		let temp = selectCategory.slice();
 
+		// 이미 선택한 카테고리일 경우
 		if (temp.findIndex((item) => item.category === category.category) > -1)
 		{
 			temp = temp.filter((item) => item.category !== category.category);
 		}
 
+		// 선택하지 않은 카테고리일 경우
 		else
 		{
 			temp.push(category);
@@ -43,6 +53,7 @@ export default function Category({ open, title, list, theme, onSelectCategory }:
 
 		setSelectCategory(temp);
 
+		// onSelectCategory 프로퍼티가 유효할 경우
 		if (onSelectCategory)
 		{
 			onSelectCategory(temp);
