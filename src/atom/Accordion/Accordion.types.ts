@@ -5,13 +5,13 @@
  * @since 2022.07.13 Wed 17:35:17
  */
 
-import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 import { Theme } from '../../common/context';
 
 export type AccordionDirection = 'left' | 'right'
 
-export interface AccordionProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+export interface AccordionProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 {
 	title?: string | HTMLElement | null
 	open?: boolean
