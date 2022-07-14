@@ -77,10 +77,6 @@
 		.accordion-svg {
 			transform: rotate(360deg);
 		}
-
-		.accordion-body {
-			max-height: 0px;
-		}
 	}
 }
 
@@ -109,6 +105,8 @@
 }
 
 .accordion-body {
+	max-height: 0px;
+
 	overflow: hidden;
 	transition: var(--delay);
 }
