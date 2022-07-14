@@ -22,13 +22,13 @@ import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Category({ open, title, list, theme, onSelectCategory }: CategoryProps): JSX.Element
+export default function Category({ list, onSelectCategory, ...props }: CategoryProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
-	const [ selectCategory, setSelectCategory ] = useState<CategoryItemProps[]>([]);
+	const [ categoryList, setCategoryList ] = useState(list);
 
-	const categories = list?.map((item, idx) => (
+	const categories = categoryList?.map((item, idx) => (
 		<CategoryItem {...item} key={`category-item-${idx + 1}`} onSelect={(isCheck) => handleSelect(isCheck, item)} />
 	)) || (
 		<p>경고</p>
@@ -37,31 +37,28 @@ export default function Category({ open, title, list, theme, onSelectCategory }:
 	// 카테고리 선택 이벤트
 	const handleSelect = (isCheck: boolean, category: CategoryItemProps) =>
 	{
-		let temp = selectCategory.slice();
+		const temp = categoryList.slice();
 
-		// 이미 선택한 카테고리일 경우
-		if (temp.findIndex((item) => item.category === category.category) > -1)
+		temp.forEach((item) =>
 		{
-			temp = temp.filter((item) => item.category !== category.category);
-		}
+			// 선택한 카테고리일 경우
+			if (item.category === category.category)
+			{
+				item.isCheck = !item.isCheck;
+			}
+		});
 
-		// 선택하지 않은 카테고리일 경우
-		else
-		{
-			temp.push(category);
-		}
-
-		setSelectCategory(temp);
+		setCategoryList(temp);
 
 		// onSelectCategory 프로퍼티가 유효할 경우
 		if (onSelectCategory)
 		{
-			onSelectCategory(temp);
+			onSelectCategory(temp.filter((item) => item.isCheck));
 		}
 	};
 
 	return (
-		<Accordion open={open} theme={theme} title={title}>
+		<Accordion {...props}>
 			<div className={cn('category-wrapper')}>
 				{categories}
 			</div>
