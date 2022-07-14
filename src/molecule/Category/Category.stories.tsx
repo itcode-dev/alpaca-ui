@@ -34,7 +34,7 @@ function getTemplate(args: CategoryProps): ComponentStory<typeof Category>
 		<section className={cn('root', args.theme)}>
 			<div className={cn('row')}>
 				<div style={{ width: 800 }}>
-					<Category {...args} onSelectCategory={(cat) => console.dir(cat)} />
+					<Category {...args} />
 				</div>
 			</div>
 		</section>
@@ -46,46 +46,48 @@ Sandbox.args = {
 	list: [
 		{
 			category: '카테고리1',
-			count: 12,
+			count: Math.ceil(Math.random() * 100),
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			isCheck: false,
+			name: '카테고리 이름',
 			simplify: false
 		},
 		{
 			category: '카테고리2',
-			count: 12,
+			count: Math.ceil(Math.random() * 100),
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			isCheck: false,
 			simplify: false
 		},
 		{
 			category: '카테고리3',
-			count: 12,
+			count: Math.ceil(Math.random() * 100),
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			isCheck: false,
 			simplify: false
 		},
 		{
 			category: '카테고리4',
-			count: 12,
+			count: Math.ceil(Math.random() * 100),
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			isCheck: false,
+			name: '내용',
 			simplify: false
 		},
 		{
 			category: '카테고리5',
-			count: 12,
+			count: Math.ceil(Math.random() * 100),
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			isCheck: false,
 			simplify: false
 		},
 		{
 			category: '카테고리6',
-			count: 12,
+			count: Math.ceil(Math.random() * 100),
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			isCheck: false,
 			simplify: false
 		}
 	],
-	title: <h3>카테고리</h3>
+	title: <h3>🎉 카테고리</h3>
 } as CategoryProps;
