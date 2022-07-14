@@ -59,6 +59,7 @@ module.exports = {
 		'linebreak-style': 'off',
 		'max-len': 'off',
 		'no-nested-ternary': 'off',
+		'no-param-reassign': 'off',
 		'no-restricted-exports': 'off',
 		'no-tabs': [ 'error', { allowIndentationTabs: true }],
 		'no-unused-vars': 'off',
