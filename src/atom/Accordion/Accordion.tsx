@@ -14,6 +14,13 @@ import { AccordionProps } from './Accordion.types';
 
 import { Context } from '../../common/context';
 
+/**
+ * Accordion 컴포넌트 JSX 반환 메서드
+ *
+ * @param {AccordionProps} props: AccordionProps 객체
+ *
+ * @returns {JSX.Element} JSX
+ */
 export default function Accordion({ title, open, direction = 'left', transparent, round, theme, children, className, onClick, ...props }: AccordionProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
