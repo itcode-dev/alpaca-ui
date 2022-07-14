@@ -13,6 +13,13 @@ import { HeaderProps } from './Header.types';
 
 import { Context } from '../../common/context';
 
+/**
+ * 헤더 컴포넌트 JSX 반환 메서드
+ *
+ * @param {HeaderProps} param0: HeaderProps 객체
+ *
+ * @returns {JSX.Element} JSX
+ */
 export default function Header({ transparent, theme, className, ...props }: HeaderProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
