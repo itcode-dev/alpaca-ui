@@ -14,6 +14,13 @@ import { InputProps } from './Input.types';
 
 import { Context } from '../../common/context';
 
+/**
+ * Input 컴포넌트 JSX 반환 메서드
+ *
+ * @param {InputProps} param0: InputProps 인터페이스
+ *
+ * @returns {JSX.Element} JSX
+ */
 export default function Input({ border, error, icon, theme, className, disabled, id, onChange, required, ...props }: InputProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
@@ -36,13 +43,16 @@ export default function Input({ border, error, icon, theme, className, disabled,
 		}
 	};
 
+	// Input 입력 시 동작 메서드
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
 	{
+		// 값이 비었을 경우
 		if (setEmpty !== (e.target.value.length === 0))
 		{
 			setEmpty(e.target.value.length === 0);
 		}
 
+		// onChange 프로퍼티가 유효할 경우
 		if (onChange)
 		{
 			onChange(e);
