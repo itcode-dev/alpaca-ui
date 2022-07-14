@@ -57,6 +57,7 @@ export default function Input({ border, error, icon, theme, className, disabled,
 				required
 			}, className)}
 			{...(id && { id: `${id}-wrapper` })}
+			data-name='Input'
 		>
 			{icon || null}
 
