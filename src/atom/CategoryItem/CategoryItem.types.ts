@@ -15,4 +15,5 @@ export interface CategoryItemProps extends Omit<DetailedHTMLProps<ButtonHTMLAttr
 	count?: string | number
 	simplify?: boolean
 	isCheck?: boolean
+	onSelect?: (isCheck: boolean) => void
 }
