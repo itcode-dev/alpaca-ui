@@ -13,10 +13,8 @@ import { ButtonProps } from './Button.types';
 
 import { Context } from '../../common/context';
 
-const cn = classNames.bind(styles);
-
 /**
- * 버튼 JSX 반환 메서드
+ * 버튼 컴포넌트 JSX 반환 메서드
  *
  * @param {ButtonProps} param0: ButtonProps 객체
  *
@@ -24,6 +22,8 @@ const cn = classNames.bind(styles);
  */
 export default function Button({ border = 'flat', color = 'basic', theme, className, ...props }: ButtonProps): JSX.Element
 {
+	const cn = classNames.bind(styles);
+
 	const ctx = useContext(Context);
 
 	return (
