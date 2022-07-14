@@ -16,7 +16,7 @@ import './AlpacaProvider.scss';
 /**
  * 알파카 Provider 컴포넌트 JSX 반환 메서드
  *
- * @param {AlpacaProviderProps} props: AlpacaProviderProps 객체
+ * @param {AlpacaProviderProps} props: AlpacaProviderProps 인터페이스
  *
  * @returns {JSX.Element} JSX
  */
