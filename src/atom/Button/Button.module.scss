@@ -13,6 +13,7 @@
 	font-family: inherit;
 	font-size: 1rem;
 
+	background-position: center;
 	padding: 5px 15px;
 
 	cursor: pointer;
@@ -20,12 +21,13 @@
 	transition: var(--delay);
 
 	&:hover:not(:disabled) {
-		background-color: transparent;
-		color: $color;
+		background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
 	}
 
-	&:active {
-		opacity: 0.3;
+	&:active:not(:disabled) {
+		background-color: white;
+		background-size: 100%;
+		transition: background 0s;
 	}
 
 	&:disabled {
@@ -50,7 +52,13 @@
 		color: black;
 
 		&:hover:not(:disabled) {
-			color: $color;
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: black;
+			background-size: 100%;
+			transition: background 0s;
 		}
 	}
 
@@ -62,7 +70,13 @@
 		color: white;
 
 		&:hover:not(:disabled) {
-			color: $color;
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: white;
+			background-size: 100%;
+			transition: background 0s;
 		}
 	}
 
@@ -74,7 +88,13 @@
 		color: white;
 
 		&:hover:not(:disabled) {
-			color: $color;
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: white;
+			background-size: 100%;
+			transition: background 0s;
 		}
 	}
 
@@ -86,7 +106,13 @@
 		color: white;
 
 		&:hover:not(:disabled) {
-			color: $color;
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: white;
+			background-size: 100%;
+			transition: background 0s;
 		}
 	}
 
@@ -98,7 +124,13 @@
 		@include color($color, $color);
 
 		&:hover:not(:disabled) {
-			color: $color;
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: white;
+			background-size: 100%;
+			transition: background 0s;
 		}
 	}
 
@@ -110,10 +142,6 @@
 		.loading {
 			opacity: 1;
 		}
-	}
-
-	.body {
-		transition: var(--delay);
 	}
 
 	.loading {

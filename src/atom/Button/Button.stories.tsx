@@ -115,3 +115,19 @@ export function Disabled(): JSX.Element
 		</section>
 	);
 }
+
+/**
+ * 로딩 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Loading(): JSX.Element
+{
+	return (
+		<section className={cn('root')}>
+			<div className={cn('row')}>
+				<Button loading>Loading</Button>
+			</div>
+		</section>
+	);
+}
