@@ -7,6 +7,7 @@
 
 import classNames from 'classnames/bind';
 import React, { useContext } from 'react';
+import { RiLoader4Fill } from 'react-icons/ri';
 
 import styles from './Button.module.scss';
 import { ButtonProps } from './Button.types';
@@ -20,13 +21,16 @@ import { Context } from '../../common/context';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Button({ border = 'flat', color = 'basic', theme, className, ...props }: ButtonProps): JSX.Element
+export default function Button({ border = 'flat', color = 'basic', loading, theme, children, className, ...props }: ButtonProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
 	const ctx = useContext(Context);
 
 	return (
-		<button className={cn('button', theme || ctx?.theme || 'light', `border-${border}`, `color-${color}`, className)} data-name='Button' {...props} />
+		<button className={cn('button', theme || ctx?.theme || 'light', `border-${border}`, `color-${color}`, { loading }, className)} data-name='Button' {...props}>
+			<div className={cn('body')}>{children}</div>
+			<div className={cn('loading')}><RiLoader4Fill /></div>
+		</button>
 	);
 }
