@@ -16,5 +16,6 @@ export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTML
 {
 	border?: ButtonBorderType
 	color?: ButtonColorType
+	loading?: boolean
 	theme?: Theme
 }
