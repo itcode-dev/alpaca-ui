@@ -9,11 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import { SidebarProps } from './Sidebar.types';
-
 import styles from '../../stories.module.scss';
 
-import Sidebar from '.';
+import Sidebar, { SidebarProps } from '.';
 
 export default {
 	component: Sidebar,
