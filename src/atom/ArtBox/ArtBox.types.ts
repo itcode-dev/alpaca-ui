@@ -5,7 +5,7 @@
  * @since 2022.07.11 Mon 00:33:45
  */
 
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
 
 export type ArtType = 'image' | 'video'
 
@@ -17,9 +17,9 @@ export interface ArtProps
 	type: ArtType
 }
 
-export interface ArtBoxProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+export interface ArtBoxProps extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>, 'children'>
 {
 	media: ArtProps[]
-	width?: string | number
-	height?: string | number
+	width?: CSSProperties['width']
+	height?: CSSProperties['height']
 }
