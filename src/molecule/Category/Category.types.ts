@@ -8,7 +8,7 @@
 import { AccordionProps } from '../../atom/Accordion/Accordion.types';
 import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 
-export interface CategoryProps extends AccordionProps
+export interface CategoryProps extends Omit<AccordionProps, 'children'>
 {
 	list?: CategoryItemProps[]
 	useInit?: boolean
