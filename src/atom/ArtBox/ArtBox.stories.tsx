@@ -8,9 +8,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
 
-import { ArtBoxProps } from './ArtBox.types';
-
-import ArtBox from '.';
+import ArtBox, { ArtBoxProps } from '.';
 
 export default {
 	component: ArtBox,
