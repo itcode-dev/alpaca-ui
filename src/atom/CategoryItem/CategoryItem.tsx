@@ -19,7 +19,7 @@ import { CategoryItemProps } from './CategoryItem.types';
  *
  * @returns {JSX.Element} JSX
  */
-export default function CategoryItem({ category, name, image, count, simplify, isCheck, onSelect, ...props }: CategoryItemProps): JSX.Element
+export default function CategoryItem({ category, name, image, count, simplify, isCheck, refresh, onSelect, ...props }: CategoryItemProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
@@ -33,7 +33,10 @@ export default function CategoryItem({ category, name, image, count, simplify, i
 	// 카테고리 아이템 클릭 시 체크 on/off 이벤트
 	const handleClick = () =>
 	{
-		setChecked(!isChecked);
+		if (!refresh)
+		{
+			setChecked(!isChecked);
+		}
 
 		// 클릭 이벤트가 있을 경우
 		if (onSelect)
