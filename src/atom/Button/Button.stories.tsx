@@ -9,10 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import Button from './Button';
-import { ButtonProps } from './Button.types';
-
 import styles from '../../stories.module.scss';
+
+import Button, { ButtonProps } from '.';
 
 export default {
 	component: Button,
@@ -24,7 +23,7 @@ const cn = classNames.bind(styles);
 /**
  * 템플릿 반환 메서드
  *
- * @param {ButtonProps} args: ButtonProps 객체
+ * @param {ButtonProps} args: ButtonProps 인터페이스
  *
  * @returns {ComponentStory<typeof Button>} ComponentStory 객체
  */
