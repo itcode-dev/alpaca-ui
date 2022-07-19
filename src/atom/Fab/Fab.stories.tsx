@@ -9,11 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React, { CSSProperties } from 'react';
 
-import { FabProps } from './Fab.types';
-
 import styles from '../../stories.module.scss';
 
-import Fab from '.';
+import Fab, { FabProps } from '.';
 
 export default {
 	component: Fab,
