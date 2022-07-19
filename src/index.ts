@@ -5,4 +5,6 @@
  * @since 2022.06.30 Thu 21:30:04
  */
 
-export { default } from './atom';
+import Atom from './atom';
+
+export default Atom;
