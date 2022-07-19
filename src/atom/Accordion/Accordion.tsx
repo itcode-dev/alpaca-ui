@@ -37,6 +37,7 @@ export default function Accordion({ title, open, direction = 'left', transparent
 	{
 		setOpen(!isOpen);
 
+		// onClick이 유효할 경우
 		if (onClick)
 		{
 			onClick(e);
