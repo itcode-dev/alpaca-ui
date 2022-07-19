@@ -11,6 +11,6 @@ import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 export interface CategoryProps extends Omit<AccordionProps, 'children'>
 {
 	list?: CategoryItemProps[]
-	useInit?: boolean
+	useRefresh?: boolean
 	onSelectCategory?: (list: CategoryItemProps[]) => void
 }
