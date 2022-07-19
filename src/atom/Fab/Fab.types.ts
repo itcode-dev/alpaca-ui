@@ -5,15 +5,15 @@
  * @since 2022.07.10 Sun 18:25:12
  */
 
-import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+import { ButtonHTMLAttributes, CSSProperties, DetailedHTMLProps } from 'react';
 
 import { Theme } from '../../common/context';
 
 export interface FabProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 {
-	top?: string | number | undefined
-	bottom?: string | number | undefined
-	left?: string | number | undefined
-	right?: string | number | undefined
+	top?: CSSProperties['top']
+	bottom?: CSSProperties['bottom']
+	left?: CSSProperties['left']
+	right?: CSSProperties['right']
 	theme?: Theme
 }
