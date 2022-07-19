@@ -9,10 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import Screener from './Screener';
-import { MediaProps, ScreenerProps } from './Screener.types';
-
 import styles from '../../stories.module.scss';
+
+import Screener, { MediaProps, ScreenerProps } from '.';
 
 export default {
 	component: Screener,
