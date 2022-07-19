@@ -9,10 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import Accordion from './Accordion';
-import { AccordionProps } from './Accordion.types';
-
 import styles from '../../stories.module.scss';
+
+import Accordion, { AccordionProps } from '.';
 
 export default {
 	component: Accordion,
