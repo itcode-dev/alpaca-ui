@@ -22,17 +22,36 @@ import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Category({ list, onSelectCategory, ...props }: CategoryProps): JSX.Element
+export default function Category({ list, useRefresh, onSelectCategory, ...props }: CategoryProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
 	const [ categoryList, setCategoryList ] = useState(list);
 
 	const categories = categoryList?.map((item, idx) => (
-		<CategoryItem {...item} key={`category-item-${idx + 1}`} onSelect={(isCheck) => handleSelect(isCheck, item)} />
+		<CategoryItem key={`category-item-${idx + 1}`} onSelect={(isCheck) => handleSelect(isCheck, item)} {...item} />
 	)) || (
 		<p>경고</p>
 	);
+
+	// 카테고리 초기화 이벤트
+	const handleRefresh = () =>
+	{
+		const temp = categoryList.slice();
+
+		temp.forEach((item) =>
+		{
+			item.isCheck = false;
+		});
+
+		setCategoryList(temp);
+
+		// onSelectCategory 프로퍼티가 유효할 경우
+		if (onSelectCategory)
+		{
+			onSelectCategory([]);
+		}
+	};
 
 	// 카테고리 선택 이벤트
 	const handleSelect = (isCheck: boolean, category: CategoryItemProps) =>
@@ -60,6 +79,9 @@ export default function Category({ list, onSelectCategory, ...props }: CategoryP
 	return (
 		<Accordion {...props}>
 			<div className={cn('category-wrapper')}>
+				{useRefresh ? (
+					<CategoryItem category='All' count={Array.isArray(categoryList) ? categoryList.reduce((acc, cur) => (acc += cur.count), 0) : 0} refresh onSelect={handleRefresh} />
+				) : null}
 				{categories}
 			</div>
 		</Accordion>
