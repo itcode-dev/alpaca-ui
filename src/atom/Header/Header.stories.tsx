@@ -9,11 +9,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import { HeaderProps } from './Header.types';
-
 import styles from '../../stories.module.scss';
 
-import Header from '.';
+import Header, { HeaderProps } from '.';
 
 export default {
 	component: Header,
