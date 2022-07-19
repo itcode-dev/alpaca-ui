@@ -8,3 +8,4 @@
 import Screener from './Screener';
 
 export default Screener;
+export * from './Screener.types';

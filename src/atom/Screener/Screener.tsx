@@ -21,28 +21,18 @@ import { ScreenerProps } from './Screener.types';
 export default function Screener({ title, accent, subtitle, media, width, height, className, style, ...props }: ScreenerProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
-	let customStyle = style;
 
-	// 기 선언된 스타일이 있을 경우
-	if (customStyle)
+	// style이 유효할 경우
+	if (style)
 	{
-		// width가 있을 경우
-		if (width)
-		{
-			customStyle.width = width;
-		}
-
-		// height가 있을 경우
-		if (height)
-		{
-			customStyle.height = height;
-		}
+		style.width = width;
+		style.height = height;
 	}
 
-	// 기 선언된 스타일이 없을 경우
+	// 아닐 경우
 	else
 	{
-		customStyle = { height, width };
+		style = { height, width };
 	}
 
 	const initMedia = Array.isArray(media) ? media[0] : media;
@@ -62,12 +52,12 @@ export default function Screener({ title, accent, subtitle, media, width, height
 	}, [ media ]);
 
 	return (
-		<article className={cn('screener', className)} data-name='Screener' style={customStyle} {...props}>
+		<article className={cn('screener', className)} data-name='Screener' style={style} {...props}>
 			<div className={cn('media-wrapper')}>
-				{state.type === 'image' ? <img alt='media' className={cn('media', state.type)} src={state.url} style={customStyle} /> : null}
-				{state.type === 'video' ? <video className={cn('media', state.type)} src={state.url} style={customStyle} autoPlay loop muted /> : null}
+				{state.type === 'image' ? <img alt='media' className={cn('media', state.type)} src={state.url} style={style} /> : null}
+				{state.type === 'video' ? <video className={cn('media', state.type)} src={state.url} style={style} autoPlay loop muted /> : null}
 
-				<div className={cn('media-dimmer')} style={customStyle} />
+				<div className={cn('media-dimmer')} style={style} />
 			</div>
 
 			<div className={cn('text-wrapper')}>
