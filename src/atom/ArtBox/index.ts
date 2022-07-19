@@ -8,3 +8,4 @@
 import ArtBox from './ArtBox';
 
 export default ArtBox;
+export * from './ArtBox.types';

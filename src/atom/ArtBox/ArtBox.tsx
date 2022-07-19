@@ -41,27 +41,26 @@ export default function ArtBox({ media, width, height, style }: ArtBoxProps): JS
 		setState(item);
 	};
 
-	const customStyle = style || {};
-
-	// width이 유효할 경우
-	if (width)
+	// style이 유효할 경우
+	if (style)
 	{
-		customStyle.width = width;
+		style.width = width;
+		style.height = height;
 	}
 
-	// height이 유효할 경우
-	if (height)
+	// 아닐 경우
+	else
 	{
-		customStyle.height = height;
+		style = { height, width };
 	}
 
 	return (
-		<article className={cn('artbox')} data-name='ArtBox' style={customStyle}>
+		<article className={cn('artbox')} data-name='ArtBox' style={style}>
 			<div className={cn('art-wrapper')}>
-				{state.type === 'image' ? <img alt='art' className={cn('art', state.type)} src={state.url} style={customStyle} /> : null}
-				{state.type === 'video' ? <video className={cn('art', state.type)} src={state.url} style={customStyle} autoPlay loop muted /> : null}
+				{state.type === 'image' ? <img alt='art' className={cn('art', state.type)} src={state.url} style={style} /> : null}
+				{state.type === 'video' ? <video className={cn('art', state.type)} src={state.url} style={style} autoPlay loop muted /> : null}
 
-				<div className={cn('art-dimmer')} style={customStyle} />
+				<div className={cn('art-dimmer')} style={style} />
 			</div>
 
 			<div className={cn('text-wrapper')}>
