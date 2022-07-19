@@ -61,6 +61,7 @@ module.exports = {
 		'no-nested-ternary': 'off',
 		'no-param-reassign': 'off',
 		'no-restricted-exports': 'off',
+		'no-return-assign': 'off',
 		'no-tabs': [ 'error', { allowIndentationTabs: true }],
 		'no-unused-vars': 'off',
 		'no-use-before-define': 'off',
