@@ -9,22 +9,21 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import CategoryItem from './CategoryItem';
-import { CategoryItemProps } from './CategoryItem.types';
-
 import styles from '../../stories.module.scss';
+
+import CategoryItem, { CategoryItemProps } from '.';
 
 export default {
 	component: CategoryItem,
 	title: 'Atom/CategoryItem'
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof CategoryItem>;
 
 const cn = classNames.bind(styles);
 
 /**
  * 템플릿 반환 메서드
  *
- * @param {CategoryItemProps} args: CategoryItemProps 객체
+ * @param {CategoryItemProps} args: CategoryItemProps 인터페이스
  *
  * @returns {ComponentStory<typeof CategoryItem>} ComponentStory 객체
  */
