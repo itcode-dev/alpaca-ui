@@ -8,3 +8,4 @@
 import AlpacaProvider from './AlpacaProvider';
 
 export default AlpacaProvider;
+export * from './AlpacaProvider.types';
