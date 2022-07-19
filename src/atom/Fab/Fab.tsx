@@ -26,33 +26,27 @@ export default function Fab({ top, bottom, left, right, theme, style, ...props }
 
 	const ctx = useContext(Context);
 
-	const customStyle = style || {};
-
-	// top이 유효할 경우
-	if (top)
+	// style이 유효할 경우
+	if (style)
 	{
-		customStyle.top = top;
+		style.top = top;
+		style.bottom = bottom;
+		style.left = left;
+		style.right = right;
 	}
 
-	// bottom이 유효할 경우
-	if (bottom)
+	// 아닐 경우
+	else
 	{
-		customStyle.bottom = bottom;
-	}
-
-	// left가 유효할 경우
-	if (left)
-	{
-		customStyle.left = left;
-	}
-
-	// right가 유효할 경우
-	if (right)
-	{
-		customStyle.right = right;
+		style = {
+			bottom,
+			left,
+			right,
+			top
+		};
 	}
 
 	return (
-		<button className={cn('fab', theme || ctx?.theme || 'light')} data-name='Fab' style={customStyle} {...props} />
+		<button className={cn('fab', theme || ctx?.theme || 'light')} data-name='Fab' style={style} {...props} />
 	);
 }
