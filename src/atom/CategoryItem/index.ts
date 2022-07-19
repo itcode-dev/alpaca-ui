@@ -8,3 +8,4 @@
 import CategoryItem from './CategoryItem';
 
 export default CategoryItem;
+export * from './CategoryItem.types';
