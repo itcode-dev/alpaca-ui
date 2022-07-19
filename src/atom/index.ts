@@ -14,7 +14,6 @@ import Fab from './Fab';
 import Header from './Header';
 import Input from './Input';
 import Screener from './Screener';
-import Sidebar from './Sidebar';
 
 export default {
 	Accordion,
@@ -28,3 +27,5 @@ export default {
 	Screener,
 	Sidebar
 };
+
+export * from './Sidebar';
