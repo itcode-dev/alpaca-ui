@@ -9,7 +9,7 @@
 	&.light {
 		border: 1px solid var(--light-border);
 
-		.accordion-button {
+		.accordion-header {
 			background-color: var(--light-accent);
 			border-bottom: 1px solid var(--light-border);
 		}
@@ -22,7 +22,7 @@
 	&.dark {
 		border: 1px solid var(--dark-border);
 
-		.accordion-button {
+		.accordion-header {
 			background-color: var(--dark-accent);
 			border-bottom: 1px solid var(--dark-border);
 			color: var(--dark-color);
@@ -37,7 +37,7 @@
 	&.transparent {
 		border: transparent;
 
-		.accordion-button {
+		.accordion-header {
 			border: transparent;
 			background: transparent;
 		}
@@ -53,7 +53,7 @@
 
 		border-radius: var(--radius);
 
-		.accordion-button {
+		.accordion-header {
 			border-radius: var(--radius);
 		}
 
@@ -67,10 +67,6 @@
 		.accordion-svg {
 			transform: rotate(180deg);
 		}
-
-		.accordion-body {
-			max-height: 1000px;
-		}
 	}
 
 	&.close {
@@ -80,7 +76,7 @@
 	}
 }
 
-.accordion-button {
+.accordion-header {
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -105,8 +101,7 @@
 }
 
 .accordion-body {
-	max-height: 0px;
-
 	overflow: hidden;
-	transition: var(--delay);
+
+	transition: var(--delay) ease;
 }
