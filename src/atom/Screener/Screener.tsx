@@ -1,5 +1,5 @@
 /**
- * 스크리너 컴포넌트 모듈
+ * Screener 컴포넌트 모듈
  *
  * @author RWB
  * @since 2022.06.30 Thu 21:33:33
@@ -12,7 +12,7 @@ import styles from './Screener.module.scss';
 import { ScreenerProps } from './Screener.types';
 
 /**
- * 스크리너 컴포넌트 JSX 반환 메서드
+ * Screener 컴포넌트 JSX 반환 메서드
  *
  * @param {ScreenerProps} param0: ScreenerProps 인터페이스
  *
@@ -52,7 +52,7 @@ export default function Screener({ title, accent, subtitle, media, width, height
 	}, [ media ]);
 
 	return (
-		<article className={cn('screener', className)} data-name='Screener' style={style} {...props}>
+		<article className={cn('screener', className)} data-component='Screener' style={style} {...props}>
 			<div className={cn('media-wrapper')}>
 				{state.type === 'image' ? <img alt='media' className={cn('media', state.type)} src={state.url} style={style} /> : null}
 				{state.type === 'video' ? <video className={cn('media', state.type)} src={state.url} style={style} autoPlay loop muted /> : null}
