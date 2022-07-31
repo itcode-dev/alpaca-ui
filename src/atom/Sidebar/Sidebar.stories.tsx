@@ -1,5 +1,5 @@
 /**
- * 사이드바 Storybook 모듈
+ * Sidebar Storybook 모듈
  *
  * @author RWB
  * @since 2022.07.08 Fri 01:35:44
