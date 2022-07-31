@@ -1,5 +1,5 @@
 /**
- * 아트박스 Storybook 모듈
+ * ArtBox Storybook 모듈
  *
  * @author RWB
  * @since 2022.07.11 Mon 00:59:47
