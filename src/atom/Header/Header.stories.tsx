@@ -1,5 +1,5 @@
 /**
- * 헤더 Storybook 모듈
+ * Header Storybook 모듈
  *
  * @author RWB
  * @since 2022.07.06 Wed 00:05:36
