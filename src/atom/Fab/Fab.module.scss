@@ -18,6 +18,16 @@
 		background-color: var(--light-background);
 		border: 1px solid var(--light-border);
 		box-shadow: 0px 0px 10px gainsboro;
+
+		&:hover:not(:disabled) {
+			background: whitesmoke radial-gradient(circle, transparent 1%, whitesmoke 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: gainsboro;
+			background-size: 100%;
+			transition: background 0s;
+		}
 	}
 
 	&.dark {
@@ -25,9 +35,15 @@
 		border: 1px solid var(--dark-border);
 		box-shadow: 0px 0px 10px var(--dark-border);
 		color: var(--dark-color);
-	}
 
-	&:hover {
-		opacity: 0.6;
+		&:hover:not(:disabled) {
+			background: #21262D radial-gradient(circle, transparent 1%, #21262D 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: #3A4450;
+			background-size: 100%;
+			transition: background 0s;
+		}
 	}
 }
