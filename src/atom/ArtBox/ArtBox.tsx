@@ -1,5 +1,5 @@
 /**
- * 아트박스 컴포넌트 모듈
+ * ArtBox 컴포넌트 모듈
  *
  * @author RWB
  * @since 2022.07.11 Mon 00:29:46
@@ -13,9 +13,9 @@ import styles from './ArtBox.module.scss';
 import { ArtBoxProps } from './ArtBox.types';
 
 /**
- * 아트박스 컴포넌트 JSX 반환 메서드
+ * ArtBox 컴포넌트 JSX 반환 메서드
  *
- * @param {FabProps} param0: FabProps 인터페이스
+ * @param {ArtBoxProps} param0: ArtBoxProps 인터페이스
  *
  * @returns {JSX.Element} JSX
  */
@@ -55,7 +55,7 @@ export default function ArtBox({ media, width, height, style }: ArtBoxProps): JS
 	}
 
 	return (
-		<article className={cn('artbox')} data-name='ArtBox' style={style}>
+		<article className={cn('artbox')} data-component='ArtBox' style={style}>
 			<div className={cn('art-wrapper')}>
 				{state.type === 'image' ? <img alt='art' className={cn('art', state.type)} src={state.url} style={style} /> : null}
 				{state.type === 'video' ? <video className={cn('art', state.type)} src={state.url} style={style} autoPlay loop muted /> : null}
