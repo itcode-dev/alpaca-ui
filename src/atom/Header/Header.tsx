@@ -1,5 +1,5 @@
 /**
- * 헤더 컴포넌트
+ * Header 컴포넌트
  *
  * @author RWB
  * @since 2022.07.05 Tue 23:39:14
@@ -14,7 +14,7 @@ import { HeaderProps } from './Header.types';
 import { Context } from '../../common/context';
 
 /**
- * 헤더 컴포넌트 JSX 반환 메서드
+ * Header 컴포넌트 JSX 반환 메서드
  *
  * @param {HeaderProps} param0: HeaderProps 인터페이스
  *
@@ -27,6 +27,6 @@ export default function Header({ transparent, theme, className, ...props }: Head
 	const ctx = useContext(Context);
 
 	return (
-		<header className={cn('header', theme || ctx?.theme || 'light', { transparent }, className)} data-name='Header' {...props} />
+		<header className={cn('header', theme || ctx?.theme || 'light', { transparent }, className)} data-component='Header' {...props} />
 	);
 }
