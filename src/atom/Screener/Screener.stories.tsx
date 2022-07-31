@@ -1,5 +1,5 @@
 /**
- * 스크리너 Storybook 모듈
+ * Screener Storybook 모듈
  *
  * @author RWB
  * @since 2022.07.01 Fri 00:00:12
