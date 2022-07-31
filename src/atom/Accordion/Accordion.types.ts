@@ -9,13 +9,9 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 import { Theme } from '../../common/context';
 
-export type AccordionDirection = 'left' | 'right'
-
 export interface AccordionProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 {
-	title?: string | HTMLElement | null
 	open?: boolean
-	direction?: AccordionDirection
 	transparent?: boolean
 	round?: boolean
 	theme?: Theme
