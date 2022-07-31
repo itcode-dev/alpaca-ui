@@ -1,5 +1,5 @@
 /**
- * 카테고리 아이템 Storybook 모듈
+ * CategoryItem Storybook 모듈
  *
  * @author RWB
  * @since 2022.07.13 Wed 00:40:19
@@ -43,9 +43,9 @@ function getTemplate(args: CategoryItemProps): ComponentStory<typeof CategoryIte
 export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
 	category: '카테고리',
+	checked: false,
 	count: Math.ceil(Math.random() * 100),
 	image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
-	isCheck: false,
 	name: '카테고리 설명',
 	simplify: false
 } as CategoryItemProps;
@@ -55,7 +55,7 @@ Sandbox.args = {
  *
  * @returns {JSX.Element} JSX
  */
-export function IsCheck(): JSX.Element
+export function Checked(): JSX.Element
 {
 	return (
 		<section className={cn('root')}>
@@ -65,7 +65,7 @@ export function IsCheck(): JSX.Element
 						category='카테고리'
 						count={Math.ceil(Math.random() * 100)}
 						image='https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1'
-						isCheck
+						checked
 					/>
 				</div>
 			</div>
