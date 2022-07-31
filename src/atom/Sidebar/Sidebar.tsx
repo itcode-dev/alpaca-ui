@@ -1,5 +1,5 @@
 /**
- * 사이드바 컴포넌트 모듈
+ * Sidebar 컴포넌트 모듈
  *
  * @author RWB
  * @since 2022.07.08 Fri 01:23:03
@@ -14,7 +14,7 @@ import { SidebarProps } from './Sidebar.types';
 import { Context } from '../../common/context';
 
 /**
- * 사이드바 컴포넌트 JSX 반환 메서드
+ * Sidebar 컴포넌트 JSX 반환 메서드
  *
  * @param {SidebarProps} param0: SidebarProps 인터페이스
  *
@@ -40,7 +40,7 @@ export default function Sidebar({ dimmer, direction = 'right', open, size = 'nor
 	};
 
 	return (
-		<aside {...(id && { id: `${id}-wrapper` })} data-name='Sidebar'>
+		<aside {...(id && { id: `${id}-wrapper` })} data-component='Sidebar'>
 			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctx?.theme || 'light', className)} id={id} {...props}>
 				{children}
 			</div>
