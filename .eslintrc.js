@@ -50,6 +50,7 @@ module.exports = {
 				'newlines-between': 'always'
 			}
 		],
+		'import/prefer-default-export': 'off',
 		indent: [ 'error', 'tab' ],
 		'jsx-a11y/click-events-have-key-events': 'off',
 		'jsx-a11y/control-has-associated-label': 'off',
