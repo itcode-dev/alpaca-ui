@@ -1,14 +1,14 @@
 /**
- * 알파카 Provider Storybook 모듈
+ * AlpacaProvider Storybook 모듈
  *
  * @author RWB
  * @since 2022.07.04 Mon 00:58:17
  */
 
 import { ComponentMeta } from '@storybook/react';
-import React, { CSSProperties, useState } from 'react';
+import React, { CSSProperties } from 'react';
 
-import { ContextProps, Theme } from '../../common/context';
+import { AlpacaContext } from '../../common/context';
 import Button from '../Button/Button';
 
 import AlpacaProvider from '.';
@@ -25,16 +25,6 @@ export default {
  */
 export function Example(): JSX.Element
 {
-	const [ state, setState ] = useState<ContextProps>({ theme: 'light' });
-
-	// 클릭 시 Provide 상태 변경 메서드
-	const handleClick = (theme: Theme) =>
-	{
-		const changeTheme = theme === 'light' ? 'dark' : 'light';
-
-		setState({ theme: changeTheme });
-	};
-
 	const style: CSSProperties = {
 		alignItems: 'center',
 		display: 'flex',
@@ -45,9 +35,12 @@ export function Example(): JSX.Element
 	};
 
 	return (
-		<AlpacaProvider value={state}>
+		<AlpacaProvider value='light'>
 			<div style={style}>
-				<Button onClick={() => handleClick(state.theme)}>{state.theme}</Button>
+				<AlpacaContext.Consumer>
+					{({ theme, setTheme }) => <Button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme}</Button>}
+				</AlpacaContext.Consumer>
+
 				<p>위 버튼을 누르면 테마 모드가 변경됩니다.</p>
 			</div>
 		</AlpacaProvider>
