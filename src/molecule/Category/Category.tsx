@@ -1,12 +1,12 @@
 /**
- * 카테고리 컴포넌트 모듈
+ * Category 컴포넌트 모듈
  *
  * @author RWB
  * @since 2022.07.14 Thu 14:48:12
  */
 
 import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 
 import styles from './Category.module.scss';
 import { CategoryProps } from './Category.types';
@@ -16,20 +16,20 @@ import CategoryItem from '../../atom/CategoryItem';
 import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 
 /**
- * 카테고리 컴포넌트 JSX 반환 메서드
+ * Category 컴포넌트 JSX 반환 메서드
  *
  * @param {CategoryProps} param0: CategoryProps 인터페이스
  *
  * @returns {JSX.Element} JSX
  */
-export default function Category({ list, useRefresh, onSelectCategory, ...props }: CategoryProps): JSX.Element
+export default function Category({ column, list, useRefresh, refreshImageUrl, onSelectCategory, onRefreshCategory, className, ...props }: CategoryProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
 	const [ categoryList, setCategoryList ] = useState(list);
 
 	const categories = categoryList?.map((item, idx) => (
-		<CategoryItem key={`category-item-${idx + 1}`} onSelect={(isCheck) => handleSelect(isCheck, item)} {...item} />
+		<CategoryItem key={`category-item-${idx + 1}`} onSelect={(checked) => handleSelect(checked, item)} {...item} />
 	)) || (
 		<p>경고</p>
 	);
@@ -41,7 +41,7 @@ export default function Category({ list, useRefresh, onSelectCategory, ...props 
 
 		temp.forEach((item) =>
 		{
-			item.isCheck = false;
+			item.checked = false;
 		});
 
 		setCategoryList(temp);
@@ -49,12 +49,12 @@ export default function Category({ list, useRefresh, onSelectCategory, ...props 
 		// onSelectCategory 프로퍼티가 유효할 경우
 		if (onSelectCategory)
 		{
-			onSelectCategory([]);
+			onRefreshCategory([]);
 		}
 	};
 
 	// 카테고리 선택 이벤트
-	const handleSelect = (isCheck: boolean, category: CategoryItemProps) =>
+	const handleSelect = (checked: boolean, category: CategoryItemProps) =>
 	{
 		const temp = categoryList.slice();
 
@@ -63,7 +63,7 @@ export default function Category({ list, useRefresh, onSelectCategory, ...props 
 			// 선택한 카테고리일 경우
 			if (item.category === category.category)
 			{
-				item.isCheck = !item.isCheck;
+				item.checked = !item.checked;
 			}
 		});
 
@@ -72,15 +72,17 @@ export default function Category({ list, useRefresh, onSelectCategory, ...props 
 		// onSelectCategory 프로퍼티가 유효할 경우
 		if (onSelectCategory)
 		{
-			onSelectCategory(temp.filter((item) => item.isCheck));
+			onSelectCategory(temp.filter((item) => item.checked));
 		}
 	};
 
+	const style: CSSProperties = { gridTemplateColumns: `repeat(${column}, 1fr)` };
+
 	return (
-		<Accordion {...props}>
-			<div className={cn('category-wrapper')}>
+		<Accordion className={cn(className)} data-component='Category' {...props}>
+			<div className={cn('category-wrapper')} style={style}>
 				{useRefresh ? (
-					<CategoryItem category='All' count={Array.isArray(categoryList) ? categoryList.reduce((acc, cur) => (acc += cur.count), 0) : 0} refresh onSelect={handleRefresh} />
+					<CategoryItem category='All' count={Array.isArray(categoryList) ? categoryList.reduce((acc, cur) => (acc += cur.count), 0) : 0} image={refreshImageUrl || 'https://user-images.githubusercontent.com/50317129/168414052-ca399b9e-11f3-417b-bf0e-b68b2eb69182.png'} refresh onSelect={handleRefresh} />
 				) : null}
 				{categories}
 			</div>
