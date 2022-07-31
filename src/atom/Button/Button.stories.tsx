@@ -1,5 +1,5 @@
 /**
- * 버튼 Storybook 모듈
+ * Button Storybook 모듈
  *
  * @author RWB
  * @since 2022.06.06 Mon 17:45:58
@@ -81,6 +81,7 @@ export function Color(): JSX.Element
 					<Button color='submit'>submit</Button>
 					<Button color='warn'>warn</Button>
 					<Button color='error'>error</Button>
+					<Button color='dark'>dark</Button>
 				</div>
 			</div>
 
@@ -91,6 +92,7 @@ export function Color(): JSX.Element
 					<Button color='submit' theme='dark'>submit</Button>
 					<Button color='warn' theme='dark'>warn</Button>
 					<Button color='error' theme='dark'>error</Button>
+					<Button color='dark' theme='dark'>dark</Button>
 				</div>
 			</div>
 		</section>

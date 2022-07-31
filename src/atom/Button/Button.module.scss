@@ -134,6 +134,24 @@
 		}
 	}
 
+	&.color-dark {
+		$color: var(--dark-accent);
+
+		color: white;
+
+		@include color($color, var(--dark-border));
+
+		&:hover:not(:disabled) {
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: white;
+			background-size: 100%;
+			transition: background 0s;
+		}
+	}
+
 	&.loading {
 		.body {
 			opacity: 0;
