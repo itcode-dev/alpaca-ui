@@ -6,13 +6,12 @@
  */
 
 import classNames from 'classnames/bind';
-import { useContext, useEffect, useState } from 'react';
-import { IoMdArrowDropdown } from 'react-icons/io';
+import { useContext, useEffect, useMemo, useState } from 'react';
 
 import styles from './Accordion.module.scss';
 import { AccordionProps } from './Accordion.types';
 
-import { Context } from '../../common/context';
+import { AccordionContext, AccordionContextProps, AlpacaContext } from '../../common/context';
 
 /**
  * Accordion 컴포넌트 JSX 반환 메서드
@@ -21,58 +20,37 @@ import { Context } from '../../common/context';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Accordion({ title, open, direction = 'left', transparent, round, theme, children, className, onClick, ...props }: AccordionProps): JSX.Element
+export default function Accordion({ open, transparent, round, theme, className, ...props }: AccordionProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
-	const ctx = useContext(Context);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
 
 	const [ isOpen, setOpen ] = useState<boolean | undefined>(open);
 
+	const valueMemo = useMemo<AccordionContextProps>(() => ({
+		isOpen,
+		setOpen
+	}), [ isOpen, setOpen ]);
+
+	const { isOpen: isOpenMemo, setOpen: setOpenMemo } = valueMemo;
+
 	useEffect(() =>
 	{
-		setOpen(open);
-	}, [ open ]);
-
-	const handleClick = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) =>
-	{
-		setOpen(!isOpen);
-
-		// onClick이 유효할 경우
-		if (onClick)
-		{
-			onClick(e);
-		}
-	};
-
-	const svg = (
-		<div className={cn('accordion-svg')}>
-			<IoMdArrowDropdown />
-		</div>
-	);
+		setOpenMemo(open);
+	}, [ open, setOpenMemo ]);
 
 	return (
-		<div
-			data-name='Accordion'
-			className={cn('accordion', theme || ctx?.theme || 'light', {
-				close: isOpen === false,
-				direction,
-				open: isOpen,
-				round,
-				transparent
-			}, className)}
-			{...props}
-		>
-			<button className={cn('accordion-button')} onClick={handleClick}>
-				{direction === 'left' ? svg : null}
-
-				<div className={cn('accordion-title')}>{title}</div>
-
-				{direction === 'right' ? svg : null}
-			</button>
-
-			<div className={cn('accordion-body')}>
-				{children}
-			</div>
-		</div>
+		<AccordionContext.Provider value={valueMemo}>
+			<div
+				data-component='Accordion'
+				className={cn('accordion', theme || ctxTheme || 'light', {
+					close: !isOpenMemo,
+					open: isOpenMemo,
+					round,
+					transparent
+				}, className)}
+				{...props}
+			/>
+		</AccordionContext.Provider>
 	);
 }
