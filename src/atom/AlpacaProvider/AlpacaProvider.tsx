@@ -1,20 +1,20 @@
 /**
- * 알파카 Provider 컴포넌트
+ * AlpacaProvider 컴포넌트
  *
  * @author RWB
  * @since 2022.07.03 Sun 22:55:11
  */
 
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { AlpacaProviderProps } from './AlpacaProvider.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext, AlpacaContextProps, Theme } from '../../common/context';
 
 import './AlpacaProvider.scss';
 
 /**
- * 알파카 Provider 컴포넌트 JSX 반환 메서드
+ * AlpacaProvider 컴포넌트 JSX 반환 메서드
  *
  * @param {AlpacaProviderProps} props: AlpacaProviderProps 인터페이스
  *
@@ -22,12 +22,19 @@ import './AlpacaProvider.scss';
  */
 export default function AlpacaProvider({ value, children }: AlpacaProviderProps): JSX.Element
 {
+	const [ state, setState ] = useState<Theme | undefined>(value);
+
+	const valueMemo = useMemo<AlpacaContextProps>(() => ({
+		setTheme: setState,
+		theme: state
+	}), [ state, setState ]);
+
 	useEffect(() =>
 	{
 		const tag = document.getElementsByTagName('html')[0];
 
 		// 다크 테마일 경우
-		if (value?.theme === 'dark')
+		if (valueMemo.theme === 'dark')
 		{
 			// 클래스에 light가 이미 있을 경우
 			if (tag.classList.contains('light'))
@@ -42,14 +49,14 @@ export default function AlpacaProvider({ value, children }: AlpacaProviderProps)
 			tag.classList.remove('dark');
 		}
 
-		tag.classList.add(value?.theme);
-	}, [ value ]);
+		tag.classList.add(valueMemo.theme);
+	}, [ valueMemo ]);
 
 	return (
-		<Context.Provider value={value}>
+		<AlpacaContext.Provider value={valueMemo}>
 			<main>
 				{children}
 			</main>
-		</Context.Provider>
+		</AlpacaContext.Provider>
 	);
 }
