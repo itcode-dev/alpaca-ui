@@ -47,6 +47,6 @@ export default function Fab({ top, bottom, left, right, theme, style, ...props }
 	}
 
 	return (
-		<button className={cn('fab', theme || ctx?.theme || 'light')} data-name='Fab' style={style} {...props} />
+		<button className={cn('fab', theme || ctx?.theme || 'light')} data-component='Fab' style={style} {...props} />
 	);
 }
