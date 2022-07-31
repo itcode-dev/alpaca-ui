@@ -1,5 +1,5 @@
 /**
- * 카테고리 아이템 컴포넌트 모듈
+ * CategoryItem 컴포넌트 모듈
  *
  * @author RWB
  * @since 2022.07.13 Wed 00:11:33
@@ -13,22 +13,22 @@ import styles from './CategoryItem.module.scss';
 import { CategoryItemProps } from './CategoryItem.types';
 
 /**
- * 카테고리 아이템 컴포넌트 JSX 반환 메서드
+ * CategoryItem 컴포넌트 JSX 반환 메서드
  *
  * @param {CategoryItemProps} props: CategoryItemProps 인터페이스
  *
  * @returns {JSX.Element} JSX
  */
-export default function CategoryItem({ category, name, image, count, simplify, isCheck, refresh, onSelect, ...props }: CategoryItemProps): JSX.Element
+export default function CategoryItem({ category, name, image, count, simplify, checked, refresh, onSelect, ...props }: CategoryItemProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
-	const [ isChecked, setChecked ] = useState<boolean | undefined>(isCheck);
+	const [ isChecked, setChecked ] = useState<boolean | undefined>(checked);
 
 	useEffect(() =>
 	{
-		setChecked(isCheck);
-	}, [ isCheck, setChecked ]);
+		setChecked(checked);
+	}, [ checked, setChecked ]);
 
 	// 카테고리 아이템 클릭 시 체크 on/off 이벤트
 	const handleClick = () =>
@@ -46,7 +46,7 @@ export default function CategoryItem({ category, name, image, count, simplify, i
 	};
 
 	return (
-		<button className={cn('category-item')} data-category={category} data-name='CategoryItem' onClick={handleClick} {...props}>
+		<button className={cn('category-item')} data-category={category} data-component='CategoryItem' onClick={handleClick} {...props}>
 			<img alt={category} className={cn('image')} src={image} />
 
 			{simplify ? null : (
