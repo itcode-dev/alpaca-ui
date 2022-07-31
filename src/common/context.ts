@@ -9,9 +9,18 @@ import { createContext } from 'react';
 
 export type Theme = 'light' | 'dark'
 
-export interface ContextProps
+export interface AlpacaContextProps
 {
-	theme: Theme
+	theme?: Theme
+	setTheme?: (theme?: Theme) => {}
 }
 
-export const Context = createContext<ContextProps | undefined>(undefined);
+export interface AccordionContextProps
+{
+	isOpen?: boolean
+	setOpen?: (isOpen?: boolean) => {}
+}
+
+export const AlpacaContext = createContext<AlpacaContextProps>({ theme: undefined });
+
+export const AccordionContext = createContext<AccordionContextProps>({ isOpen: undefined });
