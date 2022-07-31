@@ -1,0 +1,17 @@
+.chip {
+	display: inline-block;
+	padding: 5px 15px;
+	font-size: 0.8rem;
+
+	background-color: var(--light-accent);
+	border: 1px solid var(--light-border);
+	border-radius: 100px;
+
+	transition: var(--delay);
+
+	&.dark {
+		background-color: var(--dark-accent);
+		border: 1px solid var(--dark-border);
+		color: var(--dark-color);
+	}
+}
