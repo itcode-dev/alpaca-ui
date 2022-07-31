@@ -1,0 +1,15 @@
+.collapse-card {
+	width: 100%;
+	border-radius: 10px;
+	overflow: hidden;
+
+	&.light {
+		border: 1px solid var(--light-border);
+		box-shadow: 3px 3px 5px var(--light-border);
+	}
+
+	&.dark {
+		border: 1px solid var(--dark-border);
+		box-shadow: 3px 3px 5px var(--dark-border);
+	}
+}
