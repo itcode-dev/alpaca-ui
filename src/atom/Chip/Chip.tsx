@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import styles from './Chip.module.scss';
 import { ChipProps } from './Chip.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext } from '../../common/context';
 
 /**
  * Chip 컴포넌트 JSX 반환 메서드
@@ -23,9 +23,9 @@ import { Context } from '../../common/context';
 export default function Chip({ theme, className, ...props }: ChipProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
-	const ctx = useContext(Context);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
 
 	return (
-		<div className={cn('chip', theme || ctx?.theme || 'light', className)} data-component='Chip' {...props} />
+		<div className={cn('chip', theme || ctxTheme || 'light', className)} data-component='Chip' {...props} />
 	);
 }
