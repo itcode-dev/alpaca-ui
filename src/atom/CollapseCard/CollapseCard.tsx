@@ -6,13 +6,12 @@
  */
 
 import classNames from 'classnames/bind';
-import { useContext, useState } from 'react';
-import { IoIosArrowDown } from 'react-icons/io';
+import { useContext, useEffect, useMemo, useState } from 'react';
 
 import styles from './CollapseCard.module.scss';
 import { CollapseCardProps } from './CollapseCard.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext, CollapseCardContext, CollapseCardContextProps, CollapseCardValueProps } from '../../common/context';
 
 /**
  * CollapseCard 컴포넌트 JSX 반환 메서드
@@ -21,42 +20,39 @@ import { Context } from '../../common/context';
  *
  * @returns {JSX.Element} JSX
  */
-export default function CollapseCard({ extra, footer, theme, thumbnail, simple, children, ...props }: CollapseCardProps): JSX.Element
+export default function CollapseCard({ mode, isOpen, theme, className, ...props }: CollapseCardProps): JSX.Element
 {
-	const ctx = useContext(Context);
 	const cn = classNames.bind(styles);
 
-	const [ isOpen, setOpen ] = useState(false);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
+
+	const [ value, setValue ] = useState<CollapseCardValueProps>({
+		isOpen,
+		mode
+	});
+
+	const ctxMemo = useMemo<CollapseCardContextProps>(() => ({
+		setValue,
+		value
+	}), [ value, setValue ]);
+
+	const { setValue: setValueMemo } = ctxMemo;
+
+	useEffect(() =>
+	{
+		// setValueMemo 메서드가 유효할 경우
+		if (setValueMemo)
+		{
+			setValueMemo({
+				isOpen,
+				mode
+			});
+		}
+	}, [ isOpen, mode, setValueMemo ]);
 
 	return (
-		<div className={cn('collapse-card', theme || ctx?.theme || 'light')} data-component='CollapseCard' {...props}>
-			{thumbnail ? (
-				<div className={cn('collapse-card-thumb')}>
-					<img alt='thumb' src={thumbnail} />
-				</div>
-			) : null}
-
-			<div className={cn('collapse-card-body')}>
-				{children}
-			</div>
-
-			<div className={cn('collapse-card-footer')}>
-				{footer ? (
-					<div>
-						{footer}
-					</div>
-				) : null}
-
-				<div>
-					<IoIosArrowDown className={cn({ open: isOpen })} onClick={() => setOpen(!isOpen)} />
-				</div>
-			</div>
-
-			{(extra || !simple) ? (
-				<div className={cn('collapse-card-extra', { open: isOpen })}>
-					{extra}
-				</div>
-			) : null}
-		</div>
+		<CollapseCardContext.Provider value={ctxMemo}>
+			<div className={cn('collapse-card', theme || ctxTheme || 'light', className)} data-component='CollapseCard' {...props} />
+		</CollapseCardContext.Provider>
 	);
 }
