@@ -9,11 +9,11 @@ import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 import { Theme } from '../../common/context';
 
+export type CollapseCardMode = 'extra' | 'simple'
+
 export interface CollapseCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 {
-	extra?: JSX.Element
-	footer?: JSX.Element
+	mode?: CollapseCardMode
+	isOpen?: boolean
 	theme?: Theme
-	thumbnail?: string
-	simple?: boolean
 }
