@@ -12,4 +12,73 @@
 		border: 1px solid var(--dark-border);
 		box-shadow: 3px 3px 5px var(--dark-border);
 	}
+
+	.collapse-card-thumb {
+		width: 100%;
+
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+
+			object-fit: cover;
+			object-position: center;
+
+			transition: var(--delay);
+
+			&:hover {
+				transform: scale(1.2);
+			}
+		}
+	}
+
+	.collapse-card-body {
+		padding: 20px;
+	}
+
+	.collapse-card-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+
+		padding: 0px 20px 20px 20px;
+
+		.collapse-card-footer-one {
+			flex: 1;
+			display: flex;
+			align-items: center;
+		}
+
+		.collapse-card-footer-two {
+			display: flex;
+			justify-content: end;
+			align-items: center;
+
+			.collapse-card-button {
+				padding: 5px;
+
+				.collapse-card-icon {
+					transition: var(--delay);
+
+					&.open {
+						transform: rotate(180deg);
+					}
+
+					&.close {
+						transform: rotate(0deg);
+					}
+				}
+			}
+		}
+	}
+
+	.collapse-card-extra {
+		transition: var(--delay);
+
+		.collapse-card-extra-wrapper {
+			padding: 0px 20px 20px 20px;
+		}
+	}
 }

@@ -32,7 +32,9 @@ function getTemplate(args: CollapseCardProps): ComponentStory<typeof CollapseCar
 	return (
 		<section className={cn('root', args.theme)}>
 			<div className={cn('row')}>
-				<CollapseCard {...args} />
+				<div style={{ width: 500 }}>
+					<CollapseCard {...args} />
+				</div>
 			</div>
 		</section>
 	);
@@ -40,9 +42,28 @@ function getTemplate(args: CollapseCardProps): ComponentStory<typeof CollapseCar
 
 export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
-	border: 'flat',
-	children: 'Button',
-	color: 'basic',
-	disabled: false,
+	children: (
+		<>
+			<CollapseCard.Thumb image='https://static.miraheze.org/jeongiwiki/thumb/2/26/Fromis_9_logo.jpg/350px-Fromis_9_logo.jpg' />
+
+			<CollapseCard.Body>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nihil distinctio laboriosam quia cupiditate sed rerum dignissimos rem alias voluptas ab laborum nulla ea repudiandae, debitis sunt. Error, ratione a.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nihil distinctio laboriosam quia cupiditate sed rerum dignissimos rem alias voluptas ab laborum nulla ea repudiandae, debitis sunt. Error, ratione a.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nihil distinctio laboriosam quia cupiditate sed rerum dignissimos rem alias voluptas ab laborum nulla ea repudiandae, debitis sunt. Error, ratione a.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nihil distinctio laboriosam quia cupiditate sed rerum dignissimos rem alias voluptas ab laborum nulla ea repudiandae, debitis sunt. Error, ratione a.</p>
+			</CollapseCard.Body>
+
+			<CollapseCard.Footer>
+				<p>2022-05-01</p>
+			</CollapseCard.Footer>
+
+			<CollapseCard.Extra>
+				<p>test</p>
+				<p>test</p>
+				<p>test</p>
+				<p>test</p>
+			</CollapseCard.Extra>
+		</>
+	),
 	theme: 'light'
 } as CollapseCardProps;
