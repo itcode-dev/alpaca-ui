@@ -25,7 +25,7 @@
 	}
 
 	&:active:not(:disabled) {
-		background-color: white;
+		background-color: gainsboro;
 		background-size: 100%;
 		transition: background 0s;
 	}
@@ -56,9 +56,27 @@
 		}
 
 		&:active:not(:disabled) {
-			background-color: black;
+			background-color: grey;
 			background-size: 100%;
 			transition: background 0s;
+		}
+
+		&.color-transparent {
+			$color: transparent;
+
+			color: white;
+
+			@include color($color, $color);
+
+			&:hover:not(:disabled) {
+				background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+			}
+
+			&:active:not(:disabled) {
+				background-color: grey;
+				background-size: 100%;
+				transition: background 0s;
+			}
 		}
 	}
 
@@ -74,7 +92,7 @@
 		}
 
 		&:active:not(:disabled) {
-			background-color: white;
+			background-color: gainsboro;
 			background-size: 100%;
 			transition: background 0s;
 		}
@@ -92,7 +110,7 @@
 		}
 
 		&:active:not(:disabled) {
-			background-color: white;
+			background-color: gainsboro;
 			background-size: 100%;
 			transition: background 0s;
 		}
@@ -110,7 +128,7 @@
 		}
 
 		&:active:not(:disabled) {
-			background-color: white;
+			background-color: gainsboro;
 			background-size: 100%;
 			transition: background 0s;
 		}
@@ -128,7 +146,7 @@
 		}
 
 		&:active:not(:disabled) {
-			background-color: white;
+			background-color: gainsboro;
 			background-size: 100%;
 			transition: background 0s;
 		}
@@ -146,7 +164,25 @@
 		}
 
 		&:active:not(:disabled) {
-			background-color: white;
+			background-color: gainsboro;
+			background-size: 100%;
+			transition: background 0s;
+		}
+	}
+
+	&.color-transparent {
+		$color: #00000000;
+
+		color: black;
+
+		@include color($color, $color);
+
+		&:hover:not(:disabled) {
+			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+		}
+
+		&:active:not(:disabled) {
+			background-color: gainsboro;
 			background-size: 100%;
 			transition: background 0s;
 		}
@@ -162,6 +198,12 @@
 		}
 	}
 
+	.body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
 	.loading {
 		display: flex;
 		justify-content: center;
@@ -175,7 +217,9 @@
 		height: 100%;
 		opacity: 0;
 
-		animation: loading 0.75s linear infinite;
+		svg {
+			animation: loading 0.75s linear infinite;
+		}
 	}
 }
 

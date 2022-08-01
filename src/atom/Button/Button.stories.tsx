@@ -82,6 +82,7 @@ export function Color(): JSX.Element
 					<Button color='warn'>warn</Button>
 					<Button color='error'>error</Button>
 					<Button color='dark'>dark</Button>
+					<Button color='transparent'>transparent</Button>
 				</div>
 			</div>
 
@@ -93,6 +94,7 @@ export function Color(): JSX.Element
 					<Button color='warn' theme='dark'>warn</Button>
 					<Button color='error' theme='dark'>error</Button>
 					<Button color='dark' theme='dark'>dark</Button>
+					<Button color='transparent' theme='dark'>transparent</Button>
 				</div>
 			</div>
 		</section>
