@@ -6,6 +6,11 @@
  */
 
 import Accordion from './Accordion';
+import AccordionBody from './AccordionBody';
+import AccordionHeader from './AccordionHeader';
 
-export default Accordion;
+export default Object.assign(Accordion, {
+	Body: AccordionBody,
+	Header: AccordionHeader
+});
 export * from './Accordion.types';
