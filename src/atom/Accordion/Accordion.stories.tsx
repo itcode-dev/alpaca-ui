@@ -9,9 +9,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 
-import AccordionBody from './AccordionBody';
-import AccordionHeader from './AccordionHeader';
-
 import styles from '../../stories.module.scss';
 
 import Accordion, { AccordionProps } from '.';
@@ -47,23 +44,20 @@ export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
 	children: (
 		<>
-			<AccordionHeader>
+			<Accordion.Header>
 				테스트
-			</AccordionHeader>
+			</Accordion.Header>
 
-			<AccordionBody>
-				<div style={{ padding: 20 }}>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-				</div>
-			</AccordionBody>
+			<Accordion.Body style={{ padding: 20 }}>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+			</Accordion.Body>
 		</>
 	),
-	direction: 'left',
 	round: false,
 	theme: 'light',
 	transparent: false
@@ -80,11 +74,11 @@ export function Direction(): JSX.Element
 		<section className={cn('root')}>
 			<div className={cn('row')}>
 				<Accordion>
-					<AccordionHeader>
+					<Accordion.Header>
 						<h2>Direction Left</h2>
-					</AccordionHeader>
+					</Accordion.Header>
 
-					<AccordionBody>
+					<Accordion.Body>
 						<div style={{ padding: 20 }}>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -93,17 +87,17 @@ export function Direction(): JSX.Element
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 						</div>
-					</AccordionBody>
+					</Accordion.Body>
 				</Accordion>
 			</div>
 
 			<div className={cn('row')}>
 				<Accordion>
-					<AccordionHeader direction='right'>
+					<Accordion.Header direction='right'>
 						<h2>Direction Right</h2>
-					</AccordionHeader>
+					</Accordion.Header>
 
-					<AccordionBody>
+					<Accordion.Body>
 						<div style={{ padding: 20 }}>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -112,7 +106,7 @@ export function Direction(): JSX.Element
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 						</div>
-					</AccordionBody>
+					</Accordion.Body>
 				</Accordion>
 			</div>
 		</section>
@@ -131,11 +125,11 @@ export function Round(): JSX.Element
 			<div className={cn('root')}>
 				<div className={cn('row')}>
 					<Accordion round>
-						<AccordionHeader>
+						<Accordion.Header>
 							<h2>Light Round</h2>
-						</AccordionHeader>
+						</Accordion.Header>
 
-						<AccordionBody>
+						<Accordion.Body>
 							<div style={{ padding: 20 }}>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -144,7 +138,7 @@ export function Round(): JSX.Element
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							</div>
-						</AccordionBody>
+						</Accordion.Body>
 					</Accordion>
 				</div>
 			</div>
@@ -152,11 +146,11 @@ export function Round(): JSX.Element
 			<div className={cn('root', 'dark')}>
 				<div className={cn('row')}>
 					<Accordion theme='dark' round>
-						<AccordionHeader>
+						<Accordion.Header>
 							<h2>Dark Round</h2>
-						</AccordionHeader>
+						</Accordion.Header>
 
-						<AccordionBody>
+						<Accordion.Body>
 							<div style={{ padding: 20 }}>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -165,7 +159,7 @@ export function Round(): JSX.Element
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							</div>
-						</AccordionBody>
+						</Accordion.Body>
 					</Accordion>
 				</div>
 			</div>
@@ -185,11 +179,11 @@ export function Theme(): JSX.Element
 			<div className={cn('root')}>
 				<div className={cn('row')}>
 					<Accordion>
-						<AccordionHeader>
+						<Accordion.Header>
 							<h2>Light Theme</h2>
-						</AccordionHeader>
+						</Accordion.Header>
 
-						<AccordionBody>
+						<Accordion.Body>
 							<div style={{ padding: 20 }}>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -198,7 +192,7 @@ export function Theme(): JSX.Element
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							</div>
-						</AccordionBody>
+						</Accordion.Body>
 					</Accordion>
 				</div>
 			</div>
@@ -206,11 +200,11 @@ export function Theme(): JSX.Element
 			<div className={cn('root', 'dark')}>
 				<div className={cn('row')}>
 					<Accordion theme='dark'>
-						<AccordionHeader>
+						<Accordion.Header>
 							<h2>Dark Theme</h2>
-						</AccordionHeader>
+						</Accordion.Header>
 
-						<AccordionBody>
+						<Accordion.Body>
 							<div style={{ padding: 20 }}>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -219,7 +213,7 @@ export function Theme(): JSX.Element
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							</div>
-						</AccordionBody>
+						</Accordion.Body>
 					</Accordion>
 				</div>
 			</div>
@@ -239,11 +233,11 @@ export function Transparent(): JSX.Element
 			<div className={cn('root')}>
 				<div className={cn('row')}>
 					<Accordion transparent>
-						<AccordionHeader>
+						<Accordion.Header>
 							<h2>Light Transparent</h2>
-						</AccordionHeader>
+						</Accordion.Header>
 
-						<AccordionBody>
+						<Accordion.Body>
 							<div style={{ padding: 20 }}>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -252,7 +246,7 @@ export function Transparent(): JSX.Element
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							</div>
-						</AccordionBody>
+						</Accordion.Body>
 					</Accordion>
 				</div>
 			</div>
@@ -260,11 +254,11 @@ export function Transparent(): JSX.Element
 			<div className={cn('root', 'dark')}>
 				<div className={cn('row')}>
 					<Accordion theme='dark' transparent>
-						<AccordionHeader>
+						<Accordion.Header>
 							<h2>Dark Transparent</h2>
-						</AccordionHeader>
+						</Accordion.Header>
 
-						<AccordionBody>
+						<Accordion.Body>
 							<div style={{ padding: 20 }}>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
@@ -273,7 +267,7 @@ export function Transparent(): JSX.Element
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
 							</div>
-						</AccordionBody>
+						</Accordion.Body>
 					</Accordion>
 				</div>
 			</div>
