@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import styles from './Fab.module.scss';
 import { FabProps } from './Fab.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext } from '../../common/context';
 
 /**
  * Fab 컴포넌트 JSX 반환 메서드
@@ -24,7 +24,7 @@ export default function Fab({ top, bottom, left, right, theme, style, ...props }
 {
 	const cn = classNames.bind(styles);
 
-	const ctx = useContext(Context);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
 
 	// style이 유효할 경우
 	if (style)
@@ -47,6 +47,6 @@ export default function Fab({ top, bottom, left, right, theme, style, ...props }
 	}
 
 	return (
-		<button className={cn('fab', theme || ctx?.theme || 'light')} data-component='Fab' style={style} {...props} />
+		<button className={cn('fab', theme || ctxTheme || 'light')} data-component='Fab' style={style} {...props} />
 	);
 }
