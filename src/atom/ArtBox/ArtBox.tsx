@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FiRefreshCw } from 'react-icons/fi';
 
 import styles from './ArtBox.module.scss';
@@ -24,22 +24,27 @@ export default function ArtBox({ media, width, height, style }: ArtBoxProps): JS
 	const cn = classNames.bind(styles);
 
 	const [ state, setState ] = useState(media[0]);
+	const [ disabled, setDisabled ] = useState(false);
+
+	const handleChangeClick = useCallback(() =>
+	{
+		setDisabled(true);
+
+		const index = Math.floor(Math.random() * media.length);
+		const item = media[index];
+
+		setState(item);
+
+		setTimeout(() =>
+		{
+			setDisabled(false);
+		}, 500);
+	}, [ media ]);
 
 	useEffect(() =>
 	{
-		const index = Math.floor(Math.random() * media.length);
-		const item = media[index];
-
-		setState(item);
-	}, [ media ]);
-
-	const handleChangeClick = () =>
-	{
-		const index = Math.floor(Math.random() * media.length);
-		const item = media[index];
-
-		setState(item);
-	};
+		handleChangeClick();
+	}, [ media, handleChangeClick ]);
 
 	// style이 유효할 경우
 	if (style)
@@ -68,7 +73,7 @@ export default function ArtBox({ media, width, height, style }: ArtBoxProps): JS
 				<h3 className={cn('text', 'subtitle')}>{state.subtitle}</h3>
 			</div>
 
-			<button className={cn('button')} onClick={handleChangeClick}>
+			<button className={cn('button')} disabled={disabled} onClick={handleChangeClick}>
 				<FiRefreshCw />
 			</button>
 		</article>
