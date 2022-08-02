@@ -35,8 +35,16 @@ export interface CollapseCardContextProps
 	setValue?: (value?: CollapseCardValueProps) => {}
 }
 
+export interface ModalContextProps
+{
+	isOpen?: boolean
+	setOpen?: (isOpen: boolean) => {}
+}
+
 export const AlpacaContext = createContext<AlpacaContextProps>({});
 
 export const AccordionContext = createContext<AccordionContextProps>({});
 
 export const CollapseCardContext = createContext<CollapseCardContextProps>({ value: undefined });
+
+export const ModalContext = createContext<ModalContextProps>({});
