@@ -11,9 +11,32 @@
 	&.dark {
 		border: 1px solid var(--dark-border);
 		box-shadow: 3px 3px 5px var(--dark-border);
+
+		.collapse-card-body {
+			background-color: var(--dark-accent);
+			color: var(--dark-color);
+		}
+
+		.collapse-card-footer {
+			background-color: var(--dark-accent);
+			color: var(--dark-color);
+
+			.collapse-card-button {
+				color: var(--dark-color);
+			}
+		}
+
+		.collapse-card-extra-wrapper {
+			background-color: var(--dark-accent);
+			color: var(--dark-color);
+		}
 	}
 
 	.collapse-card-thumb {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
 		width: 100%;
 
 		overflow: hidden;
@@ -74,10 +97,10 @@
 		}
 	}
 
-	.collapse-card-extra {
+	.collapse-card-extra-wrapper {
 		transition: var(--delay);
 
-		.collapse-card-extra-wrapper {
+		.collapse-card-extra {
 			padding: 0px 20px 20px 20px;
 		}
 	}

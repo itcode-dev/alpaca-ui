@@ -44,7 +44,7 @@ export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
 	children: (
 		<>
-			<CollapseCard.Thumb image='https://static.miraheze.org/jeongiwiki/thumb/2/26/Fromis_9_logo.jpg/350px-Fromis_9_logo.jpg' />
+			<CollapseCard.Thumb image='https://blog.kakaocdn.net/dn/uR4bZ/btqH47v1x5Z/RuDV0p6v1cOsy7SnpNocp0/img.png' link='https://www.youtube.com/watch?v=JC6budcACNE' />
 
 			<CollapseCard.Body>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt nihil distinctio laboriosam quia cupiditate sed rerum dignissimos rem alias voluptas ab laborum nulla ea repudiandae, debitis sunt. Error, ratione a.</p>
