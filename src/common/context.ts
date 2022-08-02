@@ -7,6 +7,8 @@
 
 import { createContext } from 'react';
 
+import { CollapseCardMode } from '../atom/CollapseCard';
+
 export type Theme = 'light' | 'dark'
 
 export interface AlpacaContextProps
@@ -21,6 +23,20 @@ export interface AccordionContextProps
 	setOpen?: (isOpen?: boolean) => {}
 }
 
-export const AlpacaContext = createContext<AlpacaContextProps>({ theme: undefined });
+export interface CollapseCardValueProps
+{
+	mode?: CollapseCardMode
+	isOpen?: boolean
+}
 
-export const AccordionContext = createContext<AccordionContextProps>({ isOpen: undefined });
+export interface CollapseCardContextProps
+{
+	value?: CollapseCardValueProps
+	setValue?: (value?: CollapseCardValueProps) => {}
+}
+
+export const AlpacaContext = createContext<AlpacaContextProps>({});
+
+export const AccordionContext = createContext<AccordionContextProps>({});
+
+export const CollapseCardContext = createContext<CollapseCardContextProps>({ value: undefined });
