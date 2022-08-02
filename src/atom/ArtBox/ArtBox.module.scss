@@ -97,8 +97,12 @@
 	transition: var(--delay);
 	cursor: pointer;
 
-	&:hover {
-		animation: 1s rotate infinite;
+	&:active {
+		animation: 0.3s rotate infinite;
+	}
+
+	&:disabled {
+		opacity: 0.5;
 	}
 }
 
