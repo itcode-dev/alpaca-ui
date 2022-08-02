@@ -12,7 +12,7 @@ import { IoIosClose } from 'react-icons/io';
 import styles from './Input.module.scss';
 import { InputProps } from './Input.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext } from '../../common/context';
 
 /**
  * Input 컴포넌트 JSX 반환 메서드
@@ -25,7 +25,7 @@ export default function Input({ border, error, icon, theme, className, disabled,
 {
 	const cn = classNames.bind(styles);
 
-	const ctx = useContext(Context);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
 	const ref = useRef<HTMLInputElement | null>(null);
 
 	const [ isEmpty, setEmpty ] = useState(true);
@@ -61,7 +61,7 @@ export default function Input({ border, error, icon, theme, className, disabled,
 
 	return (
 		<div
-			className={cn('input-wrapper', border, theme || ctx?.theme || 'light', {
+			className={cn('input-wrapper', border, theme || ctxTheme || 'light', {
 				disabled,
 				error,
 				required
