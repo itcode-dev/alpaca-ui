@@ -21,7 +21,7 @@ import { slide } from '../../common/util';
  *
  * @returns {JSX.Element} JSX
  */
-export default function CollapseCardExtra({ className, children, ...props }: CollapseCardExtraProps): JSX.Element
+export default function CollapseCardExtra({ className, ...props }: CollapseCardExtraProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
@@ -40,10 +40,8 @@ export default function CollapseCardExtra({ className, children, ...props }: Col
 	}, [ value ]);
 
 	return value?.mode === 'extra' ? (
-		<div className={cn('collapse-card-extra')} data-component='CollapseCardExtra' ref={ref} {...props}>
-			<div className={cn('collapse-card-extra-wrapper', className)}>
-				{children}
-			</div>
+		<div className={cn('collapse-card-extra-wrapper')} data-component='CollapseCardExtra' ref={ref}>
+			<div className={cn('collapse-card-extra', className)} {...props} />
 		</div>
 	) : null;
 }
