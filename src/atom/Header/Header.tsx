@@ -11,7 +11,7 @@ import { useContext } from 'react';
 import styles from './Header.module.scss';
 import { HeaderProps } from './Header.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext } from '../../common/context';
 
 /**
  * Header 컴포넌트 JSX 반환 메서드
@@ -24,9 +24,9 @@ export default function Header({ transparent, theme, className, ...props }: Head
 {
 	const cn = classNames.bind(styles);
 
-	const ctx = useContext(Context);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
 
 	return (
-		<header className={cn('header', theme || ctx?.theme || 'light', { transparent }, className)} data-component='Header' {...props} />
+		<header className={cn('header', theme || ctxTheme || 'light', { transparent }, className)} data-component='Header' {...props} />
 	);
 }
