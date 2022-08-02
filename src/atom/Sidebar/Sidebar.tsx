@@ -11,7 +11,7 @@ import { useContext, useEffect, useState } from 'react';
 import styles from './Sidebar.module.scss';
 import { SidebarProps } from './Sidebar.types';
 
-import { Context } from '../../common/context';
+import { AlpacaContext } from '../../common/context';
 
 /**
  * Sidebar 컴포넌트 JSX 반환 메서드
@@ -24,7 +24,7 @@ export default function Sidebar({ dimmer, direction = 'right', open, size = 'nor
 {
 	const cn = classNames.bind(styles);
 
-	const ctx = useContext(Context);
+	const { theme: ctxTheme } = useContext(AlpacaContext);
 
 	const [ isOpen, setOpen ] = useState(open);
 
@@ -41,7 +41,7 @@ export default function Sidebar({ dimmer, direction = 'right', open, size = 'nor
 
 	return (
 		<aside {...(id && { id: `${id}-wrapper` })} data-component='Sidebar'>
-			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctx?.theme || 'light', className)} id={id} {...props}>
+			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctxTheme || 'light', className)} id={id} {...props}>
 				{children}
 			</div>
 
