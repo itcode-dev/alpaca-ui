@@ -33,6 +33,8 @@ export default function AccordionBody({ className, ...props }: AccordionBodyProp
 	}, [ isOpen ]);
 
 	return (
-		<div className={cn('accordion-body', className)} data-component='AccordionBody' ref={ref} {...props} />
+		<div className={cn('accordion-body-wrapper')} data-component='AccordionBody' ref={ref} {...(props.id && { id: `${props.id}-wrapper` })}>
+			<div className={cn('accordion-body', className)} {...props} />
+		</div>
 	);
 }
