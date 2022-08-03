@@ -82,7 +82,6 @@ export function Color(): JSX.Element
 					<Button color='warn'>warn</Button>
 					<Button color='error'>error</Button>
 					<Button color='dark'>dark</Button>
-					<Button color='transparent'>transparent</Button>
 				</div>
 			</div>
 
@@ -94,7 +93,6 @@ export function Color(): JSX.Element
 					<Button color='warn' theme='dark'>warn</Button>
 					<Button color='error' theme='dark'>error</Button>
 					<Button color='dark' theme='dark'>dark</Button>
-					<Button color='transparent' theme='dark'>transparent</Button>
 				</div>
 			</div>
 		</section>
@@ -130,6 +128,56 @@ export function Loading(): JSX.Element
 		<section className={cn('root')}>
 			<div className={cn('row')}>
 				<Button loading>Loading</Button>
+			</div>
+		</section>
+	);
+}
+
+/**
+ * 외곽선 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Outline(): JSX.Element
+{
+	return (
+		<section className={cn('root')}>
+			<div className={cn('row')}>
+				<Button color='basic' outline>basic</Button>
+				<Button color='primary' outline>primary</Button>
+				<Button color='submit' outline>submit</Button>
+				<Button color='warn' outline>warn</Button>
+				<Button color='error' outline>error</Button>
+				<Button color='dark' outline>dark</Button>
+			</div>
+
+			<div className={cn('row', 'dark')}>
+				<Button color='basic' theme='dark' outline>basic</Button>
+				<Button color='primary' theme='dark' outline>primary</Button>
+				<Button color='submit' theme='dark' outline>submit</Button>
+				<Button color='warn' theme='dark' outline>warn</Button>
+				<Button color='error' theme='dark' outline>error</Button>
+				<Button color='dark' theme='dark' outline>dark</Button>
+			</div>
+		</section>
+	);
+}
+
+/**
+ * 투명 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Transparent(): JSX.Element
+{
+	return (
+		<section className={cn('root')}>
+			<div className={cn('row')}>
+				<Button transparent>Loading</Button>
+			</div>
+
+			<div className={cn('row', 'dark')}>
+				<Button theme='dark' transparent>Loading</Button>
 			</div>
 		</section>
 	);

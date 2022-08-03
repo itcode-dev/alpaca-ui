@@ -1,15 +1,32 @@
-@mixin color($primary, $secondary) {
-	background-color: $primary;
-	border: 1px solid $secondary;
+@mixin color($background, $border, $font) {
+	background-color: $background;
+	border: 1px solid $border;
+
+	color: $font;
+
+	&.outline {
+		background-color: transparent;
+
+		color: $background;
+	}
+
+	&:hover:not(:disabled) {
+		color: $font;
+
+		background: $background radial-gradient(circle, transparent 1%, $background 1%) center/15000%;
+	}
+
+	&:active:not(:disabled) {
+		background-color: gainsboro;
+		background-size: 100%;
+		transition: background 0s;
+	}
 }
 
 .button {
-	$color: black;
-
-	@include color($color, $color);
+	@include color(black, black, white);
 
 	position: relative;
-	color: white;
 	font-family: inherit;
 	font-size: 1rem;
 
@@ -18,17 +35,7 @@
 
 	cursor: pointer;
 
-	transition: var(--delay);
-
-	&:hover:not(:disabled) {
-		background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-	}
-
-	&:active:not(:disabled) {
-		background-color: gainsboro;
-		background-size: 100%;
-		transition: background 0s;
-	}
+	transition: var(--delay), color 0s;
 
 	&:disabled {
 		opacity: 0.5;
@@ -45,147 +52,35 @@
 	}
 
 	&.dark {
-		$color: white;
+		@include color(white, white, black);
 
-		@include color($color, $color);
-
-		color: black;
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: grey;
-			background-size: 100%;
-			transition: background 0s;
-		}
-
-		&.color-transparent {
-			$color: transparent;
-
-			color: white;
-
-			@include color($color, $color);
-
-			&:hover:not(:disabled) {
-				background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-			}
-
-			&:active:not(:disabled) {
-				background-color: grey;
-				background-size: 100%;
-				transition: background 0s;
-			}
+		&.transparent {
+			@include color(transparent, transparent, white);
 		}
 	}
 
 	&.color-primary {
-		$color: dodgerblue;
-
-		@include color($color, $color);
-
-		color: white;
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: gainsboro;
-			background-size: 100%;
-			transition: background 0s;
-		}
+		@include color(dodgerblue, dodgerblue, white);
 	}
 
 	&.color-submit {
-		$color: limegreen;
-
-		@include color($color, $color);
-
-		color: white;
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: gainsboro;
-			background-size: 100%;
-			transition: background 0s;
-		}
+		@include color(limegreen, limegreen, white);
 	}
 
 	&.color-warn {
-		$color: orange;
-
-		@include color($color, $color);
-
-		color: white;
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: gainsboro;
-			background-size: 100%;
-			transition: background 0s;
-		}
+		@include color(orange, orange, white);
 	}
 
 	&.color-error {
-		$color: crimson;
-
-		color: white;
-
-		@include color($color, $color);
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: gainsboro;
-			background-size: 100%;
-			transition: background 0s;
-		}
+		@include color(crimson, crimson, white);
 	}
 
 	&.color-dark {
-		$color: var(--dark-accent);
-
-		color: white;
-
-		@include color($color, var(--dark-border));
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: gainsboro;
-			background-size: 100%;
-			transition: background 0s;
-		}
+		@include color(var(--dark-accent), var(--dark-border), white);
 	}
 
-	&.color-transparent {
-		$color: #00000000;
-
-		color: black;
-
-		@include color($color, $color);
-
-		&:hover:not(:disabled) {
-			background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
-		}
-
-		&:active:not(:disabled) {
-			background-color: gainsboro;
-			background-size: 100%;
-			transition: background 0s;
-		}
+	&.transparent {
+		@include color(transparent, transparent, black);
 	}
 
 	&.loading {
@@ -193,7 +88,7 @@
 			opacity: 0;
 		}
 
-		.loading {
+		.spinner {
 			opacity: 1;
 		}
 	}
@@ -202,9 +97,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		transition: var(--delay);
 	}
 
-	.loading {
+	.spinner {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -216,6 +113,8 @@
 		width: 100%;
 		height: 100%;
 		opacity: 0;
+
+		transition: var(--delay);
 
 		svg {
 			animation: loading 0.75s linear infinite;
