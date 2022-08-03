@@ -21,16 +21,24 @@ import { AlpacaContext } from '../../common/context';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Button({ border = 'flat', color = 'basic', loading, theme, children, className, ...props }: ButtonProps): JSX.Element
+export default function Button({ border = 'flat', color = 'basic', loading, outline, theme, transparent, children, className, ...props }: ButtonProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
 	const { theme: ctxTheme } = useContext(AlpacaContext);
 
 	return (
-		<button className={cn('button', theme || ctxTheme || 'light', `border-${border}`, `color-${color}`, { loading }, className)} data-component='Button' {...props}>
+		<button
+			data-component='Button'
+			className={cn('button', theme || ctxTheme || 'light', `border-${border}`, `color-${color}`, {
+				loading,
+				outline,
+				transparent
+			}, className)}
+			{...props}
+		>
 			<div className={cn('body')}>{children}</div>
-			<div className={cn('loading')}><RiLoader4Fill /></div>
+			<div className={cn('spinner')}><RiLoader4Fill /></div>
 		</button>
 	);
 }
