@@ -59,17 +59,23 @@
 		}
 	}
 
-	button {
+	.input-reset {
 		display: flex;
 		align-items: center;
 
 		background: transparent;
 		border: transparent;
 		padding: 0px;
+		opacity: 0;
 
 		color: inherit;
 		font-size: 1rem;
 
 		cursor: pointer;
+		transition: var(--delay);
+
+		&.on {
+			opacity: 1;
+		}
 	}
 }

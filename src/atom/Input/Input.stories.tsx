@@ -46,7 +46,8 @@ Sandbox.args = {
 	border: 'flat',
 	disabled: false,
 	required: false,
-	theme: 'light'
+	theme: 'light',
+	type: 'text'
 } as InputProps;
 
 /**
@@ -195,6 +196,108 @@ export function Required(): JSX.Element
 			<div className={cn('root', 'dark')}>
 				<div className={cn('row')}>
 					<Input border='flat' theme='dark' required />
+				</div>
+			</div>
+		</section>
+	);
+}
+
+/**
+ * 타입별 예시 JSX 반환 메서드
+ *
+ * @returns {JSX.Element} JSX
+ */
+export function Type(): JSX.Element
+{
+	return (
+		<section>
+			<div className={cn('root')}>
+				<div className={cn('row')}>
+					<Input border='flat' type='button' value='button' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='checkbox' value='button' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='color' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='date' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='datetime-local' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='email' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='file' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='hidden' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='image' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='month' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='number' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='password' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='radio' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='range' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='reset' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='search' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='submit' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='tel' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='text' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='time' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='url' />
+				</div>
+
+				<div className={cn('row')}>
+					<Input border='flat' type='week' />
 				</div>
 			</div>
 		</section>
