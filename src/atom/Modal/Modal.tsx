@@ -6,7 +6,7 @@
  */
 
 import classNames from 'classnames/bind';
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { MouseEvent, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 import styles from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
@@ -20,7 +20,7 @@ import { AlpacaContext, ModalContext, ModalContextProps } from '../../common/con
  *
  * @returns {JSX.Element} JSX
  */
-export default function Modal({ dimmed, forced, open, theme, className, ...props }: ModalProps): JSX.Element
+export default function Modal({ dimmed, forced, open, theme, className, onClick, ...props }: ModalProps): JSX.Element
 {
 	const { id } = props;
 
@@ -51,6 +51,17 @@ export default function Modal({ dimmed, forced, open, theme, className, ...props
 		}
 	}, [ forced, setOpenMemo ]);
 
+	const handleModalClick = useCallback((e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) =>
+	{
+		e.stopPropagation();
+
+		// onClick 메서드가 유효할 경우
+		if (onClick)
+		{
+			onClick(e);
+		}
+	}, [ onClick ]);
+
 	return (
 		<ModalContext.Provider value={valueMemo}>
 			<div
@@ -63,7 +74,7 @@ export default function Modal({ dimmed, forced, open, theme, className, ...props
 				onClick={handleWrapperClick}
 				{...(id && { id: `${id}-wrapper` })}
 			>
-				<div className={cn('modal', theme || ctxTheme || 'light', className)} {...props} />
+				<div className={cn('modal', theme || ctxTheme || 'light', className)} onClick={handleModalClick} {...props} />
 			</div>
 		</ModalContext.Provider>
 	);
