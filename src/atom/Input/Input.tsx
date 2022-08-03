@@ -73,11 +73,9 @@ export default function Input({ border, error, icon, theme, className, disabled,
 
 			<input disabled={disabled} id={id} ref={ref} required={required} onChange={handleChange} {...props} />
 
-			{isEmpty || disabled ? null : (
-				<button onClick={handleClick}>
-					<IoIosClose />
-				</button>
-			)}
+			<button className={cn('input-reset', { on: !disabled && !isEmpty })} onClick={handleClick}>
+				<IoIosClose />
+			</button>
 		</div>
 	);
 }
