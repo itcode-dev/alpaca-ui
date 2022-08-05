@@ -5,7 +5,8 @@
  * @since 2022.07.19 Tue 23:25:55
  */
 
-import Category from './Category';
+import Category from '@alpaca/molecule/Category/Category';
 
 export default Category;
-export * from './Category.types';
+
+export * from '@alpaca/molecule/Category/Category.types';

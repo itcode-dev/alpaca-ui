@@ -5,13 +5,11 @@
  * @since 2022.07.06 Wed 00:05:36
  */
 
+import Header, { HeaderProps } from '@alpaca/atom/Header';
+import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
-
-import styles from '../../stories.module.scss';
-
-import Header, { HeaderProps } from '.';
 
 export default {
 	component: Header,

@@ -5,13 +5,11 @@
  * @since 2022.07.13 Wed 00:40:19
  */
 
+import CategoryItem, { CategoryItemProps } from '@alpaca/atom/CategoryItem';
+import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
-
-import styles from '../../stories.module.scss';
-
-import CategoryItem, { CategoryItemProps } from '.';
 
 export default {
 	component: CategoryItem,

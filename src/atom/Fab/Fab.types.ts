@@ -5,9 +5,8 @@
  * @since 2022.07.10 Sun 18:25:12
  */
 
+import { Theme } from '@alpaca/common';
 import { ButtonHTMLAttributes, CSSProperties, DetailedHTMLProps } from 'react';
-
-import { Theme } from '../../common/context';
 
 export interface FabProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 {

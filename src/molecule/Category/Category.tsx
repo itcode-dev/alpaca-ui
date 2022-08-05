@@ -5,15 +5,12 @@
  * @since 2022.07.14 Thu 14:48:12
  */
 
+import Accordion from '@alpaca/atom/Accordion';
+import CategoryItem, { CategoryItemProps } from '@alpaca/atom/CategoryItem';
+import styles from '@alpaca/molecule/Category/Category.module.scss';
+import { CategoryProps } from '@alpaca/molecule/Category/Category.types';
 import classNames from 'classnames/bind';
 import { CSSProperties, useState } from 'react';
-
-import styles from './Category.module.scss';
-import { CategoryProps } from './Category.types';
-
-import Accordion from '../../atom/Accordion';
-import CategoryItem from '../../atom/CategoryItem';
-import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 
 /**
  * Category 컴포넌트 JSX 반환 메서드

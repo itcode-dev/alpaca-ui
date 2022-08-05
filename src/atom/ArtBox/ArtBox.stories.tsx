@@ -5,10 +5,9 @@
  * @since 2022.07.11 Mon 00:59:47
  */
 
+import ArtBox, { ArtBoxProps } from '@alpaca/atom/ArtBox';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
-
-import ArtBox, { ArtBoxProps } from '.';
 
 export default {
 	component: ArtBox,

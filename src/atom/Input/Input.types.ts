@@ -5,10 +5,9 @@
  * @since 2022.07.10 Sun 01:29:46
  */
 
+import { Theme } from '@alpaca/common';
 import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { IconType } from 'react-icons';
-
-import { Theme } from '../../common/context';
 
 export type InputBorder = 'flat' | 'round' | 'circle'
 

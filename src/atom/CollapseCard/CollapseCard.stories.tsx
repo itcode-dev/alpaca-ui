@@ -5,13 +5,11 @@
  * @since 2022.06.06 Mon 17:45:58
  */
 
+import CollapseCard, { CollapseCardProps } from '@alpaca/atom/CollapseCard';
+import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
-
-import styles from '../../stories.module.scss';
-
-import CollapseCard, { CollapseCardProps } from '.';
 
 export default {
 	component: CollapseCard,

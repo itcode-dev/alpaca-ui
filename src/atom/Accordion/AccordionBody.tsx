@@ -5,14 +5,11 @@
  * @since 2022.07.29 Fri 02:07:41
  */
 
+import styles from '@alpaca/atom/Accordion/Accordion.module.scss';
+import { AccordionBodyProps } from '@alpaca/atom/Accordion/AccordionBody.types';
+import { slide, AccordionContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext, useEffect, useRef } from 'react';
-
-import styles from './Accordion.module.scss';
-import { AccordionBodyProps } from './AccordionBody.types';
-
-import { AccordionContext } from '../../common/context';
-import { slide } from '../../common/util';
 
 export default function AccordionBody({ className, ...props }: AccordionBodyProps): JSX.Element
 {

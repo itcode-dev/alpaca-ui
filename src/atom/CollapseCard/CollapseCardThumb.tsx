@@ -5,10 +5,9 @@
  * @since 2022.08.01 Mon 11:41:03
  */
 
+import styles from '@alpaca/atom/CollapseCard/CollapseCard.module.scss';
+import { CollapseCardThumbProps } from '@alpaca/atom/CollapseCard/CollapseCardThumb.types';
 import classNames from 'classnames/bind';
-
-import styles from './CollapseCard.module.scss';
-import { CollapseCardThumbProps } from './CollapseCardThumb.types';
 
 /**
  * CollapseCardThumb 컴포넌트 JSX 반환 메서드

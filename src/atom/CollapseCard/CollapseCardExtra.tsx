@@ -5,14 +5,11 @@
  * @since 2022.08.01 Mon 13:21:11
  */
 
+import styles from '@alpaca/atom/CollapseCard/CollapseCard.module.scss';
+import { CollapseCardExtraProps } from '@alpaca/atom/CollapseCard/CollapseCardExtra.types';
+import { slide, CollapseCardContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext, useEffect, useRef } from 'react';
-
-import styles from './CollapseCard.module.scss';
-import { CollapseCardExtraProps } from './CollapseCardExtra.types';
-
-import { CollapseCardContext } from '../../common/context';
-import { slide } from '../../common/util';
 
 /**
  * CollapseCardExtra 컴포넌트 JSX 반환 메서드

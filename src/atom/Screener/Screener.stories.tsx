@@ -5,13 +5,11 @@
  * @since 2022.07.01 Fri 00:00:12
  */
 
+import Screener, { MediaProps, ScreenerProps } from '@alpaca/atom/Screener';
+import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
-
-import styles from '../../stories.module.scss';
-
-import Screener, { MediaProps, ScreenerProps } from '.';
 
 export default {
 	component: Screener,

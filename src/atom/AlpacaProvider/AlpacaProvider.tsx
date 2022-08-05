@@ -5,11 +5,9 @@
  * @since 2022.07.03 Sun 22:55:11
  */
 
+import { AlpacaProviderProps } from '@alpaca/atom/AlpacaProvider';
+import { AlpacaContext, AlpacaContextProps, Theme } from '@alpaca/common';
 import { useEffect, useMemo, useState } from 'react';
-
-import { AlpacaProviderProps } from './AlpacaProvider.types';
-
-import { AlpacaContext, AlpacaContextProps, Theme } from '../../common/context';
 
 import './AlpacaProvider.scss';
 

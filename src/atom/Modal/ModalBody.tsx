@@ -5,10 +5,9 @@
  * @since 2022.08.03 Wed 01:11:07
  */
 
+import styles from '@alpaca/atom/Modal/Modal.module.scss';
+import { ModalBodyProps } from '@alpaca/atom/Modal/ModalBody.types';
 import classNames from 'classnames/bind';
-
-import styles from './Modal.module.scss';
-import { ModalBodyProps } from './ModalBody.types';
 
 /**
  * ModalBody 컴포넌트 JSX 반환 메서드

@@ -5,14 +5,12 @@
  * @since 2022.07.10 Sun 01:28:14
  */
 
+import styles from '@alpaca/atom/Input/Input.module.scss';
+import { InputProps } from '@alpaca/atom/Input/Input.types';
+import { AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { ChangeEvent, useContext, useRef, useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
-
-import styles from './Input.module.scss';
-import { InputProps } from './Input.types';
-
-import { AlpacaContext } from '../../common/context';
 
 /**
  * Input 컴포넌트 JSX 반환 메서드

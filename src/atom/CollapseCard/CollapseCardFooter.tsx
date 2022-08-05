@@ -5,15 +5,13 @@
  * @since 2022.08.01 Mon 13:21:11
  */
 
+import Button from '@alpaca/atom/Button';
+import styles from '@alpaca/atom/CollapseCard/CollapseCard.module.scss';
+import { CollapseCardFooterProps } from '@alpaca/atom/CollapseCard/CollapseCardFooter.types';
+import { CollapseCardContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
-
-import styles from './CollapseCard.module.scss';
-import { CollapseCardFooterProps } from './CollapseCardFooter.types';
-
-import { CollapseCardContext } from '../../common/context';
-import Button from '../Button';
 
 /**
  * CollapseCardFooter 컴포넌트 JSX 반환 메서드

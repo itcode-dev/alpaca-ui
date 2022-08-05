@@ -5,10 +5,9 @@
  * @since 2022.08.01 Mon 13:10:38
  */
 
+import styles from '@alpaca/atom/CollapseCard/CollapseCard.module.scss';
+import { CollapseCardBodyProps } from '@alpaca/atom/CollapseCard/CollapseCardBody.types';
 import classNames from 'classnames/bind';
-
-import styles from './CollapseCard.module.scss';
-import { CollapseCardBodyProps } from './CollapseCardBody.types';
 
 /**
  * CollapseCardBody 컴포넌트 JSX 반환 메서드

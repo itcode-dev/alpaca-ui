@@ -5,9 +5,9 @@
  * @since 2022.08.03 Wed 09:58:03
  */
 
+import styles from '@alpaca/atom/Modal/Modal.module.scss';
+import { ModalFooterProps } from '@alpaca/atom/Modal/ModalFooter.types';
 import classNames from 'classnames/bind';
-
-import styles from './Modal.module.scss';
 
 /**
  * ModalFooter 컴포넌트 JSX 반환 메서드
@@ -16,7 +16,7 @@ import styles from './Modal.module.scss';
  *
  * @returns {JSX.Element} JSX
  */
-export default function ModalFooter({ className, ...props }): JSX.Element
+export default function ModalFooter({ className, ...props }: ModalFooterProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 

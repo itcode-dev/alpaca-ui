@@ -5,7 +5,8 @@
  * @since 2022.07.21 Thu 00:53:54
  */
 
-import Chip from './Chip';
+import Chip from '@alpaca/atom/Chip/Chip';
 
 export default Chip;
-export * from './Chip.types';
+
+export * from '@alpaca/atom/Chip/Chip.types';

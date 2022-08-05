@@ -5,7 +5,8 @@
  * @since 2022.06.06 Mon 17:46:46
  */
 
-import Button from './Button';
+import Button from '@alpaca/atom/Button/Button';
 
 export default Button;
-export * from './Button.types';
+
+export * from '@alpaca/atom/Button/Button.types';

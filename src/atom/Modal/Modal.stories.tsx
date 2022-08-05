@@ -5,17 +5,12 @@
  * @since 2022.08.03 Wed 01:06:10
  */
 
+import Button from '@alpaca/atom/Button';
+import Modal, { ModalProps } from '@alpaca/atom/Modal';
+import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React, { useState } from 'react';
-
-import { ModalProps } from './Modal.types';
-import ModalFooter from './ModalFooter';
-
-import styles from '../../stories.module.scss';
-import Button from '../Button';
-
-import Modal from '.';
 
 export default {
 	component: Modal,
@@ -52,17 +47,17 @@ Sandbox.args = {
 
 			<Modal.Body>ModalBody</Modal.Body>
 
-			<ModalFooter>
+			<Modal.Footer>
 				<div style={{
 					display: 'flex',
 					gap: 10,
 					justifyContent: 'end'
 				}}
 				>
-					<Button border='round' color='submit'>확인</Button>
-					<Button border='round'>닫기</Button>
+					<Button border='round' color='submit' outline>확인</Button>
+					<Button border='round' outline>닫기</Button>
 				</div>
-			</ModalFooter>
+			</Modal.Footer>
 		</>
 	),
 	open: true,
@@ -111,16 +106,16 @@ export function Dimmed(): JSX.Element
 
 				<Modal.Body>ModalBody</Modal.Body>
 
-				<ModalFooter>
+				<Modal.Footer>
 					<div style={{
 						display: 'flex',
 						gap: 10,
 						justifyContent: 'end'
 					}}
 					>
-						<Button border='round' onClick={() => setOpen(false)}>닫기</Button>
+						<Button border='round' outline onClick={() => setOpen(false)}>닫기</Button>
 					</div>
-				</ModalFooter>
+				</Modal.Footer>
 			</Modal>
 		</section>
 	);
@@ -168,16 +163,16 @@ export function Forced(): JSX.Element
 
 				<Modal.Body>ModalBody</Modal.Body>
 
-				<ModalFooter>
+				<Modal.Footer>
 					<div style={{
 						display: 'flex',
 						gap: 10,
 						justifyContent: 'end'
 					}}
 					>
-						<Button border='round' onClick={() => setOpen(false)}>닫기</Button>
+						<Button border='round' outline onClick={() => setOpen(false)}>닫기</Button>
 					</div>
-				</ModalFooter>
+				</Modal.Footer>
 			</Modal>
 		</section>
 	);

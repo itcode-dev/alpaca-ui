@@ -5,13 +5,11 @@
  * @since 2022.07.21 Thu 00:47:09
  */
 
+import styles from '@alpaca/atom/Chip/Chip.module.scss';
+import { ChipProps } from '@alpaca/atom/Chip/Chip.types';
+import { AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext } from 'react';
-
-import styles from './Chip.module.scss';
-import { ChipProps } from './Chip.types';
-
-import { AlpacaContext } from '../../common/context';
 
 /**
  * Chip 컴포넌트 JSX 반환 메서드
