@@ -5,6 +5,12 @@
  * @since 2022.07.31 Sun 22:12:46
  */
 
+/**
+ * 슬라이드 메서드
+ *
+ * @param {HTMLElement} tag: HTML 태그
+ * @param {boolean} open: 슬라이딩 여부
+ */
 export function slide(tag: HTMLElement, open: boolean | undefined): void
 {
 	tag.style.height = open ? `${tag.scrollHeight}px` : '0px';
