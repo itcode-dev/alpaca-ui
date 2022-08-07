@@ -5,6 +5,7 @@
  * @since 2022.07.10 Sun 01:28:14
  */
 
+import btnStyles from '@alpaca/atom/Button/Button.module.scss';
 import styles from '@alpaca/atom/Input/Input.module.scss';
 import { InputProps } from '@alpaca/atom/Input/Input.types';
 import { AlpacaContext } from '@alpaca/common';
@@ -19,9 +20,10 @@ import { IoIosClose } from 'react-icons/io';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Input({ border, error, icon, theme, className, disabled, id, onChange, required, ...props }: InputProps): JSX.Element
+export default function Input({ border = 'flat', color = 'basic', loading, outline, transparent, error, icon, theme, className, disabled, id, onChange, required, ...props }: InputProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
+	const bcn = classNames.bind(btnStyles);
 
 	const { theme: ctxTheme } = useContext(AlpacaContext);
 	const ref = useRef<HTMLInputElement | null>(null);
@@ -56,6 +58,44 @@ export default function Input({ border, error, icon, theme, className, disabled,
 			onChange(e);
 		}
 	};
+
+	let tag;
+
+	switch (props.type)
+	{
+		case 'button':
+		case 'reset':
+		case 'submit':
+			return (
+				<input
+					data-component='Input'
+					disabled={disabled}
+					id={id}
+					ref={ref}
+					required={required}
+					className={bcn('button', theme || ctxTheme || 'light', `border-${border}`, `color-${color}`, {
+						loading,
+						outline,
+						transparent
+					}, className)}
+					onChange={handleChange}
+					{...props}
+				/>
+			);
+
+		case 'hidden':
+			return (
+				<input
+					data-component='Input'
+					disabled={disabled}
+					id={id}
+					ref={ref}
+					required={required}
+					onChange={handleChange}
+					{...props}
+				/>
+			);
+	}
 
 	return (
 		<div
