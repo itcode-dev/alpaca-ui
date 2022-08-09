@@ -5,8 +5,8 @@
  * @since 2022.07.10 Sun 01:46:20
  */
 
-import Input from '@alpaca/atom/Input/Input';
+import Input from '../Input/Input';
 
 export default Input;
 
-export * from '@alpaca/atom/Input/Input.types';
+export * from '../Input/Input.types';

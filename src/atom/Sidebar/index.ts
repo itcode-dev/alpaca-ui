@@ -5,8 +5,6 @@
  * @since 2022.07.08 Fri 01:36:25
  */
 
-import Sidebar from '@alpaca/atom/Sidebar/Sidebar';
+import Sidebar from './Sidebar';
 
 export default Sidebar;
-
-export * from '@alpaca/atom/Sidebar/Sidebar.types';

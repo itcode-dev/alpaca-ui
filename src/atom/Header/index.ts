@@ -5,8 +5,6 @@
  * @since 2022.07.06 Wed 01:22:55
  */
 
-import Header from '@alpaca/atom/Header/Header';
+import Header from './Header';
 
 export default Header;
-
-export * from '@alpaca/atom/Header/Header.types';
