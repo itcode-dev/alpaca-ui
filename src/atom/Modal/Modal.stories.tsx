@@ -5,12 +5,16 @@
  * @since 2022.08.03 Wed 01:06:10
  */
 
-import Button from '@alpaca/atom/Button';
-import Modal, { ModalProps } from '@alpaca/atom/Modal';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React, { useState } from 'react';
+
+import { ModalProps } from './Modal.types';
+
+import styles from '../../stories.module.scss';
+import Button from '../Button';
+
+import Modal from '.';
 
 export default {
 	component: Modal,

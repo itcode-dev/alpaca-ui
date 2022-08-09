@@ -5,8 +5,9 @@
  * @since 2022.07.08 Fri 01:23:14
  */
 
-import { Theme } from '@alpaca/common';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
+import { Theme } from '../../common';
 
 export type SidebarDirection = 'left' | 'right'
 export type SidebarSize = 'small' | 'normal' | 'large' | 'xlarge'

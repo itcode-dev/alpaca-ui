@@ -5,11 +5,13 @@
  * @since 2022.07.04 Mon 00:58:17
  */
 
-import AlpacaProvider from '@alpaca/atom/AlpacaProvider';
-import Button from '@alpaca/atom/Button';
-import { AlpacaContext } from '@alpaca/common/context';
 import { ComponentMeta } from '@storybook/react';
 import React, { CSSProperties } from 'react';
+
+import { AlpacaContext } from '../../common';
+import Button from '../Button';
+
+import AlpacaProvider from '.';
 
 export default {
 	component: AlpacaProvider,

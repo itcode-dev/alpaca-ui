@@ -5,11 +5,13 @@
  * @since 2022.07.08 Fri 01:23:03
  */
 
-import styles from '@alpaca/atom/Sidebar/Sidebar.module.scss';
-import { SidebarProps } from '@alpaca/atom/Sidebar/Sidebar.types';
-import { AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext, useEffect, useState } from 'react';
+
+import styles from './Sidebar.module.scss';
+import { SidebarProps } from './Sidebar.types';
+
+import { AlpacaContext } from '../../common';
 
 /**
  * Sidebar 컴포넌트 JSX 반환 메서드

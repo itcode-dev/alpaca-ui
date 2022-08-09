@@ -5,8 +5,9 @@
  * @since 2022.07.11 Mon 15:03:27
  */
 
-import { Theme } from '@alpaca/common/context';
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+
+import { Theme } from '../../common/context';
 
 export type ButtonBorderType = 'flat' | 'round' | 'circle'
 export type ButtonColorType = 'basic' | 'primary' | 'submit' | 'warn' | 'error' | 'dark'

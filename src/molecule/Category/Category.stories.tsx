@@ -5,11 +5,14 @@
  * @since 2022.07.13 Wed 00:40:19
  */
 
-import Category, { CategoryProps } from '@alpaca/molecule/Category';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
+
+import Category from './Category';
+import { CategoryProps } from './Category.types';
+
+import styles from '../../stories.module.scss';
 
 export default {
 	component: Category,

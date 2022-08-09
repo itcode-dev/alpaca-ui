@@ -5,11 +5,15 @@
  * @since 2022.07.21 Thu 00:56:01
  */
 
-import Chip, { ChipProps } from '@alpaca/atom/Chip';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
+
+import { ChipProps } from './Chip.types';
+
+import styles from '../../stories.module.scss';
+
+import Chip from '.';
 
 export default {
 	component: Chip,

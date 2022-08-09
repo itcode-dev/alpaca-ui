@@ -5,8 +5,9 @@
  * @since 2022.07.04 Mon 00:44:22
  */
 
-import { CollapseCardMode } from '@alpaca/atom';
 import { createContext } from 'react';
+
+import { CollapseCardMode } from '../atom/CollapseCard/CollapseCard.types';
 
 export type Theme = 'light' | 'dark'
 

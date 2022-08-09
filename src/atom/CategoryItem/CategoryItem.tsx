@@ -5,11 +5,12 @@
  * @since 2022.07.13 Wed 00:11:33
  */
 
-import styles from '@alpaca/atom/CategoryItem/CategoryItem.module.scss';
-import { CategoryItemProps } from '@alpaca/atom/CategoryItem/CategoryItem.types';
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
+
+import styles from './CategoryItem.module.scss';
+import { CategoryItemProps } from './CategoryItem.types';
 
 /**
  * CategoryItem 컴포넌트 JSX 반환 메서드

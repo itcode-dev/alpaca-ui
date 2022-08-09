@@ -5,8 +5,9 @@
  * @since 2022.07.24 Sun 02:28:41
  */
 
-import { Theme } from '@alpaca/common';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
+import { Theme } from '../../common';
 
 export type CollapseCardMode = 'extra' | 'simple'
 

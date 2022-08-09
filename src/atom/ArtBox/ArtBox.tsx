@@ -5,12 +5,12 @@
  * @since 2022.07.11 Mon 00:29:46
  */
 
-import { ArtBoxProps } from '@alpaca/atom/ArtBox/ArtBox.types';
 import classNames from 'classnames/bind';
 import { useCallback, useEffect, useState } from 'react';
 import { FiRefreshCw } from 'react-icons/fi';
 
 import styles from './ArtBox.module.scss';
+import { ArtBoxProps } from './ArtBox.types';
 
 /**
  * ArtBox 컴포넌트 JSX 반환 메서드

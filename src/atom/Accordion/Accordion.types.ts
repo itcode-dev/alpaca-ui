@@ -5,8 +5,9 @@
  * @since 2022.07.13 Wed 17:35:17
  */
 
-import { Theme } from '@alpaca/common';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
+import { Theme } from '../../common';
 
 export interface AccordionProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 {

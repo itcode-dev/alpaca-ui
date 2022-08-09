@@ -5,13 +5,15 @@
  * @since 2022.07.10 Sun 01:28:14
  */
 
-import btnStyles from '@alpaca/atom/Button/Button.module.scss';
-import styles from '@alpaca/atom/Input/Input.module.scss';
-import { InputProps } from '@alpaca/atom/Input/Input.types';
-import { AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { ChangeEvent, useContext, useRef, useState } from 'react';
 import { IoIosClose } from 'react-icons/io';
+
+import styles from './Input.module.scss';
+import { InputProps } from './Input.types';
+
+import { AlpacaContext } from '../../common';
+import btnStyles from '../Button/Button.module.scss';
 
 /**
  * Input 컴포넌트 JSX 반환 메서드
@@ -59,8 +61,6 @@ export default function Input({ border = 'flat', color = 'basic', loading, outli
 		}
 	};
 
-	let tag;
-
 	switch (props.type)
 	{
 		case 'button':
@@ -95,25 +95,26 @@ export default function Input({ border = 'flat', color = 'basic', loading, outli
 					{...props}
 				/>
 			);
+
+		default:
+			return (
+				<div
+					className={cn('input-wrapper', border, theme || ctxTheme || 'light', {
+						disabled,
+						error,
+						required
+					}, className)}
+					{...(id && { id: `${id}-wrapper` })}
+					data-component='Input'
+				>
+					{icon || null}
+
+					<input disabled={disabled} id={id} ref={ref} required={required} onChange={handleChange} {...props} />
+
+					<button className={cn('input-reset', { on: !disabled && !isEmpty })} onClick={handleClick}>
+						<IoIosClose />
+					</button>
+				</div>
+			);
 	}
-
-	return (
-		<div
-			className={cn('input-wrapper', border, theme || ctxTheme || 'light', {
-				disabled,
-				error,
-				required
-			}, className)}
-			{...(id && { id: `${id}-wrapper` })}
-			data-component='Input'
-		>
-			{icon || null}
-
-			<input disabled={disabled} id={id} ref={ref} required={required} onChange={handleChange} {...props} />
-
-			<button className={cn('input-reset', { on: !disabled && !isEmpty })} onClick={handleClick}>
-				<IoIosClose />
-			</button>
-		</div>
-	);
 }
