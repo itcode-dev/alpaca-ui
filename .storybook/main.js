@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   "core": {
     builder: 'webpack5',
@@ -14,11 +12,5 @@ module.exports = {
     "@storybook/addon-interactions",
     "@storybook/preset-scss"
   ],
-  "framework": "@storybook/react",
-  "webpackFinal": async config =>
-  {
-    config.resolve.alias["@alpaca"] = path.resolve(__dirname, "../src");
-
-    return config;
-  }
+  "framework": "@storybook/react"
 }
