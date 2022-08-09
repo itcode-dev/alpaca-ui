@@ -14,21 +14,15 @@
 		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"emitDeclarationOnly": true,
-		"removeComments": true,
-		"baseUrl": "./",
-		"paths": {
-			"@alpaca/*": [
-				"./src/*"
-			],
-		}
+		"removeComments": true
 	},
 	"include": [
-		"./src"
+		"./src",
+		"./src/**/*.stories.tsx",
 	],
 	"exclude": [
 		"./dist",
 		"./node_modules",
 		"./src/**/*.test.tsx",
-		"./src/**/*.stories.tsx",
 	]
 }

@@ -46,7 +46,7 @@ const config = [
 				extensions,
 				include: [ 'src/**/*' ]
 			}),
-			typescript({ tsconfig: './tsconfig.json' }),
+			typescript({ tsconfig: './tsconfig-build.json' }),
 			postcss({
 				extract: false,
 				inject: (cssVariableName) => `import styleInject from 'style-inject';\nstyleInject(${cssVariableName});`,
