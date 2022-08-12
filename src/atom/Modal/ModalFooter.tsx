@@ -5,9 +5,10 @@
  * @since 2022.08.03 Wed 09:58:03
  */
 
-import styles from '@alpaca/atom/Modal/Modal.module.scss';
-import { ModalFooterProps } from '@alpaca/atom/Modal/ModalFooter.types';
 import classNames from 'classnames/bind';
+
+import styles from './Modal.module.scss';
+import { ModalFooterProps } from './ModalFooter.types';
 
 /**
  * ModalFooter 컴포넌트 JSX 반환 메서드

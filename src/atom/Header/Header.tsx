@@ -5,11 +5,13 @@
  * @since 2022.07.05 Tue 23:39:14
  */
 
-import styles from '@alpaca/atom/Header/Header.module.scss';
-import { HeaderProps } from '@alpaca/atom/Header/Header.types';
-import { AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext } from 'react';
+
+import styles from './Header.module.scss';
+import { HeaderProps } from './Header.types';
+
+import { AlpacaContext } from '../../common';
 
 /**
  * Header 컴포넌트 JSX 반환 메서드

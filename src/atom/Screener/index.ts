@@ -5,8 +5,6 @@
  * @since 2022.07.10 Sun 18:23:21
  */
 
-import Screener from '@alpaca/atom/Screener/Screener';
+import Screener from './Screener';
 
 export default Screener;
-
-export * from '@alpaca/atom/Screener/Screener.types';

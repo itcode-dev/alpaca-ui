@@ -5,11 +5,15 @@
  * @since 2022.07.08 Fri 01:35:44
  */
 
-import Sidebar, { SidebarProps } from '@alpaca/atom/Sidebar';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
+
+import { SidebarProps } from './Sidebar.types';
+
+import styles from '../../stories.module.scss';
+
+import Sidebar from '.';
 
 export default {
 	component: Sidebar,

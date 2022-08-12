@@ -5,9 +5,10 @@
  * @since 2022.08.03 Wed 00:57:53
  */
 
-import styles from '@alpaca/atom/Modal/Modal.module.scss';
-import { ModalHeaderProps } from '@alpaca/atom/Modal/ModalHeader.types';
 import classNames from 'classnames/bind';
+
+import styles from './Modal.module.scss';
+import { ModalHeaderProps } from './ModalHeader.types';
 
 /**
  * ModalHeader 컴포넌트 JSX 반환 메서드

@@ -5,8 +5,9 @@
  * @since 2022.08.03 Wed 00:47:18
  */
 
-import { Theme } from '@alpaca/common';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
+import { Theme } from '../../common';
 
 export interface ModalProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 {

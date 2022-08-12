@@ -5,8 +5,6 @@
  * @since 2022.07.06 Wed 00:48:22
  */
 
-import AlpacaProvider from '@alpaca/atom/AlpacaProvider/AlpacaProvider';
+import AlpacaProvider from './AlpacaProvider';
 
 export default AlpacaProvider;
-
-export * from '@alpaca/atom/AlpacaProvider/AlpacaProvider.types';

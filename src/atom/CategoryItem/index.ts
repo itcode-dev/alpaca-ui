@@ -5,8 +5,6 @@
  * @since 2022.07.13 Wed 00:39:54
  */
 
-import CategoryItem from '@alpaca/atom/CategoryItem/CategoryItem';
+import CategoryItem from './CategoryItem';
 
 export default CategoryItem;
-
-export * from '@alpaca/atom/CategoryItem/CategoryItem.types';

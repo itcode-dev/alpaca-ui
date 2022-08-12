@@ -5,6 +5,10 @@
  * @since 2022.06.30 Thu 21:30:04
  */
 
-export * from '@alpaca/atom';
-export * from '@alpaca/molecule';
-export * from '@alpaca/common';
+import atom from './atom';
+import molecule from './molecule';
+
+export default {
+	atom,
+	molecule
+};

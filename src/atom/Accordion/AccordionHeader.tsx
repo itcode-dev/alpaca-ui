@@ -5,12 +5,14 @@
  * @since 2022.07.27 Wed 22:27:51
  */
 
-import styles from '@alpaca/atom/Accordion/Accordion.module.scss';
-import { AccordionHeaderProps } from '@alpaca/atom/Accordion/AccordionHeader.types';
-import { AccordionContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext } from 'react';
 import { IoMdArrowDropdown } from 'react-icons/io';
+
+import styles from './Accordion.module.scss';
+import { AccordionHeaderProps } from './AccordionHeader.types';
+
+import { AccordionContext } from '../../common';
 
 /**
  * AccordionHeader 컴포넌트 JSX 반환 메서드

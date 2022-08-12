@@ -5,12 +5,16 @@
  * @since 2022.07.10 Sun 01:45:56
  */
 
-import Input, { InputProps } from '@alpaca/atom/Input';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
 import { MdInfoOutline, MdOutlineFileDownloadDone, MdSearch } from 'react-icons/md';
+
+import { InputProps } from './Input.types';
+
+import styles from '../../stories.module.scss';
+
+import Input from '.';
 
 export default {
 	component: Input,

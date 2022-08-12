@@ -5,11 +5,15 @@
  * @since 2022.07.10 Sun 19:03:12
  */
 
-import Fab, { FabProps } from '@alpaca/atom/Fab';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React, { CSSProperties } from 'react';
+
+import { FabProps } from './Fab.types';
+
+import styles from '../../stories.module.scss';
+
+import Fab from '.';
 
 export default {
 	component: Fab,

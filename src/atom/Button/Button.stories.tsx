@@ -5,11 +5,15 @@
  * @since 2022.06.06 Mon 17:45:58
  */
 
-import Button, { ButtonProps } from '@alpaca/atom/Button';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
+
+import { ButtonProps } from './Button.types';
+
+import styles from '../../stories.module.scss';
+
+import Button from '.';
 
 export default {
 	component: Button,

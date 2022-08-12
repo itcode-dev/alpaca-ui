@@ -5,11 +5,11 @@
  * @since 2022.07.24 Sun 04:32:51
  */
 
-import CollapseCard from '@alpaca/atom/CollapseCard/CollapseCard';
-import CollapseCardBody from '@alpaca/atom/CollapseCard/CollapseCardBody';
-import CollapseCardExtra from '@alpaca/atom/CollapseCard/CollapseCardExtra';
-import CollapseCardFooter from '@alpaca/atom/CollapseCard/CollapseCardFooter';
-import CollapseCardThumb from '@alpaca/atom/CollapseCard/CollapseCardThumb';
+import CollapseCard from './CollapseCard';
+import CollapseCardBody from './CollapseCardBody';
+import CollapseCardExtra from './CollapseCardExtra';
+import CollapseCardFooter from './CollapseCardFooter';
+import CollapseCardThumb from './CollapseCardThumb';
 
 export default Object.assign(CollapseCard, {
 	Body: CollapseCardBody,
@@ -17,9 +17,3 @@ export default Object.assign(CollapseCard, {
 	Footer: CollapseCardFooter,
 	Thumb: CollapseCardThumb
 });
-
-export * from '@alpaca/atom/CollapseCard/CollapseCard.types';
-export * from '@alpaca/atom/CollapseCard/CollapseCardBody.types';
-export * from '@alpaca/atom/CollapseCard/CollapseCardExtra.types';
-export * from '@alpaca/atom/CollapseCard/CollapseCardFooter.types';
-export * from '@alpaca/atom/CollapseCard/CollapseCardThumb.types';

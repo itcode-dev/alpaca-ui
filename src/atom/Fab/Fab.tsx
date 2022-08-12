@@ -5,11 +5,13 @@
  * @since 2022.07.10 Sun 18:24:43
  */
 
-import styles from '@alpaca/atom/Fab/Fab.module.scss';
-import { FabProps } from '@alpaca/atom/Fab/Fab.types';
-import { AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext } from 'react';
+
+import styles from './Fab.module.scss';
+import { FabProps } from './Fab.types';
+
+import { AlpacaContext } from '../../common';
 
 /**
  * Fab 컴포넌트 JSX 반환 메서드

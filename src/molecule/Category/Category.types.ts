@@ -5,8 +5,8 @@
  * @since 2022.07.14 Thu 14:49:03
  */
 
-import { AccordionProps } from '@alpaca/atom/Accordion';
-import { CategoryItemProps } from '@alpaca/atom/CategoryItem';
+import { AccordionProps } from '../../atom/Accordion/Accordion.types';
+import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 
 export interface CategoryProps extends Omit<AccordionProps, 'children'>
 {

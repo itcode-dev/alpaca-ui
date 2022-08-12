@@ -5,10 +5,11 @@
  * @since 2022.06.30 Thu 21:33:33
  */
 
-import styles from '@alpaca/atom/Screener/Screener.module.scss';
-import { ScreenerProps } from '@alpaca/atom/Screener/Screener.types';
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
+
+import styles from './Screener.module.scss';
+import { ScreenerProps } from './Screener.types';
 
 /**
  * Screener 컴포넌트 JSX 반환 메서드

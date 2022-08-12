@@ -5,11 +5,13 @@
  * @since 2022.08.03 Wed 00:45:00
  */
 
-import styles from '@alpaca/atom/Modal/Modal.module.scss';
-import { ModalProps } from '@alpaca/atom/Modal/Modal.types';
-import { AlpacaContext, ModalContext, ModalContextProps } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { MouseEvent, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+
+import styles from './Modal.module.scss';
+import { ModalProps } from './Modal.types';
+
+import { AlpacaContext, ModalContext, ModalContextProps } from '../../common';
 
 /**
  * Modal 컴포넌트 JSX 반환 메서드

@@ -5,10 +5,11 @@
  * @since 2022.07.10 Sun 01:29:46
  */
 
-import { ButtonBaseProps } from '@alpaca/atom/Button';
-import { Theme } from '@alpaca/common';
 import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { IconType } from 'react-icons';
+
+import { Theme } from '../../common';
+import { ButtonBaseProps } from '../Button';
 
 export interface InputProps extends ButtonBaseProps, DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 {

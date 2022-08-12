@@ -5,11 +5,13 @@
  * @since 2022.07.13 Wed 17:13:22
  */
 
-import styles from '@alpaca/atom/Accordion/Accordion.module.scss';
-import { AccordionProps } from '@alpaca/atom/Accordion/Accordion.types';
-import { AccordionContext, AccordionContextProps, AlpacaContext } from '@alpaca/common';
 import classNames from 'classnames/bind';
 import { useContext, useEffect, useMemo, useState } from 'react';
+
+import styles from './Accordion.module.scss';
+import { AccordionProps } from './Accordion.types';
+
+import { AccordionContext, AccordionContextProps, AlpacaContext } from '../../common';
 
 /**
  * Accordion 컴포넌트 JSX 반환 메서드

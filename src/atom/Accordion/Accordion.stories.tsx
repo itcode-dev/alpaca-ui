@@ -5,11 +5,15 @@
  * @since 2022.06.06 Mon 17:45:58
  */
 
-import Accordion, { AccordionProps } from '@alpaca/atom/Accordion';
-import styles from '@alpaca/stories.module.scss';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
 import React from 'react';
+
+import { AccordionProps } from './Accordion.types';
+
+import styles from '../../stories.module.scss';
+
+import Accordion from '.';
 
 export default {
 	component: Accordion,
