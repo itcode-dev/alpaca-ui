@@ -28,11 +28,32 @@
 	min-width: 240px;
 	overflow: hidden;
 
+	&.dark {
+		border: 1px solid var(--dark-border);
+
+		.modal-header {
+			background-color: var(--dark-accent);
+			border-bottom: 1px solid var(--dark-border);
+			color: var(--dark-color);
+		}
+
+		.modal-body {
+			background-color: var(--dark-accent);
+			color: var(--dark-color);
+		}
+
+		.modal-footer {
+			background-color: var(--dark-accent);
+			border-top: 1px solid var(--dark-border);
+			color: var(--dark-color);
+		}
+	}
+
 	.modal-header {
 		padding: 15px;
 
 		background-color: var(--light-background);
-		border-bottom: 1px solid gainsboro;
+		border-bottom: 1px solid var(--light-border);
 	}
 
 	.modal-body {
@@ -45,6 +66,6 @@
 		padding: 15px;
 
 		background-color: var(--light-background);
-		border-top: 1px solid gainsboro;
+		border-top: 1px solid var(--light-border);
 	}
 }
