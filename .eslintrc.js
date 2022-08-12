@@ -76,7 +76,7 @@ module.exports = {
 			},
 			ObjectPattern: 'never'
 		}],
-		'react-hooks/exhaustive-deps': 'warn',
+		'react-hooks/exhaustive-deps': 'off',
 		'react/button-has-type': 'off',
 		'react/destructuring-assignment': 'off',
 		'react/function-component-definition': 'off',
