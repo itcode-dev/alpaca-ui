@@ -12,7 +12,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import styles from './CollapseCard.module.scss';
 import { CollapseCardFooterProps } from './CollapseCardFooter.types';
 
-import { CollapseCardContext } from '../../common';
+import { CollapseCardContext, NullableJSX } from '../../common';
 import Button from '../Button';
 
 /**
@@ -20,9 +20,9 @@ import Button from '../Button';
  *
  * @param {CollapseCardFooterProps} param0: CollapseCardFooterProps 인터페이스
  *
- * @returns {JSX.Element} JSX
+ * @returns {NullableJSX} NullableJSX
  */
-export default function CollapseCardFooter({ className, children, ...props }: CollapseCardFooterProps): JSX.Element
+export default function CollapseCardFooter({ className, children, ...props }: CollapseCardFooterProps): NullableJSX
 {
 	const cn = classNames.bind(styles);
 

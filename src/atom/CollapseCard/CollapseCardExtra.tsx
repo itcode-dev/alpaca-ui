@@ -11,16 +11,16 @@ import { useContext, useEffect, useRef } from 'react';
 import styles from './CollapseCard.module.scss';
 import { CollapseCardExtraProps } from './CollapseCardExtra.types';
 
-import { slide, CollapseCardContext } from '../../common';
+import { slide, CollapseCardContext, NullableJSX } from '../../common';
 
 /**
  * CollapseCardExtra 컴포넌트 JSX 반환 메서드
  *
  * @param {CollapseCardExtraProps} param0: CollapseCardExtraProps 인터페이스
  *
- * @returns {JSX.Element} JSX
+ * @returns {NullableJSX} JSX
  */
-export default function CollapseCardExtra({ className, ...props }: CollapseCardExtraProps): JSX.Element
+export default function CollapseCardExtra({ className, ...props }: CollapseCardExtraProps): NullableJSX
 {
 	const cn = classNames.bind(styles);
 
