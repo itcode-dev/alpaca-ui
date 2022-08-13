@@ -22,7 +22,7 @@ import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Category({ column, list, useRefresh, refreshImageUrl, onSelectCategory, onRefreshCategory, className, ...props }: CategoryProps): JSX.Element
+export default function Category({ header, column, list, useRefresh, refreshImageUrl, onSelectCategory, onRefreshCategory, ...props }: CategoryProps): JSX.Element
 {
 	const cn = classNames.bind(styles);
 
@@ -47,7 +47,7 @@ export default function Category({ column, list, useRefresh, refreshImageUrl, on
 		setCategoryList(temp);
 
 		// onSelectCategory 프로퍼티가 유효할 경우
-		if (onSelectCategory)
+		if (onRefreshCategory)
 		{
 			onRefreshCategory([]);
 		}
@@ -79,13 +79,17 @@ export default function Category({ column, list, useRefresh, refreshImageUrl, on
 	const style: CSSProperties = { gridTemplateColumns: `repeat(${column}, 1fr)` };
 
 	return (
-		<Accordion className={cn(className)} data-component='Category' {...props}>
-			<div className={cn('category-wrapper')} style={style}>
-				{useRefresh ? (
-					<CategoryItem category='All' count={Array.isArray(categoryList) ? categoryList.reduce((acc, cur) => (acc += cur.count), 0) : 0} image={refreshImageUrl || 'https://user-images.githubusercontent.com/50317129/168414052-ca399b9e-11f3-417b-bf0e-b68b2eb69182.png'} refresh onSelect={handleRefresh} />
-				) : null}
-				{categories}
-			</div>
+		<Accordion data-component='Category' {...props}>
+			<Accordion.Header>{header}</Accordion.Header>
+
+			<Accordion.Body>
+				<div className={cn('category-wrapper')} style={style}>
+					{useRefresh ? (
+						<CategoryItem category='All' count={Array.isArray(categoryList) ? categoryList.reduce((acc, cur) => (acc += cur.count), 0) : 0} image={refreshImageUrl || 'https://user-images.githubusercontent.com/50317129/168414052-ca399b9e-11f3-417b-bf0e-b68b2eb69182.png'} refresh onSelect={handleRefresh} />
+					) : null}
+					{categories}
+				</div>
+			</Accordion.Body>
 		</Accordion>
 	);
 }
