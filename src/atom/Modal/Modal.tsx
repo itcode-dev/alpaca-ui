@@ -40,7 +40,7 @@ export default function Modal({ dimmed, forced, open, theme, className, onClick,
 	const handleWrapperClick = useCallback(() =>
 	{
 		// 선택 강제가 아닐 경우
-		if (!forced)
+		if (!forced && setOpen)
 		{
 			setOpen(false);
 		}

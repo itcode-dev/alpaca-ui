@@ -33,7 +33,7 @@ export default function AccordionHeader({ direction, className, children, ...pro
 	);
 
 	return (
-		<button className={cn('accordion-header', className)} data-component='AccordionHeader' onClick={() => setOpen(!isOpen)} {...props}>
+		<button className={cn('accordion-header', className)} data-component='AccordionHeader' onClick={() => setOpen && setOpen(!isOpen)} {...props}>
 			{direction === 'right' ? null : svg}
 
 			<div className={cn('accordion-title')}>{children}</div>
