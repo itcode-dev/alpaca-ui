@@ -5,14 +5,14 @@
  * @since 2022.07.11 Mon 00:33:45
  */
 
-import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { CSSProperties, DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
 export type ArtType = 'image' | 'video'
 
 export interface ArtProps
 {
-	title: string | number | HTMLElement
-	subtitle?: string | number | HTMLElement
+	title: string | number | ReactNode
+	subtitle?: string | number | ReactNode
 	url: string,
 	type: ArtType
 }

@@ -8,12 +8,11 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import { IconType } from 'react-icons';
 
-import { Theme } from '../../common';
+import { WithThemeProps } from '../../common';
 import { ButtonBaseProps } from '../Button';
 
-export interface InputProps extends ButtonBaseProps, DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
+export interface InputProps extends ButtonBaseProps, WithThemeProps<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>>
 {
 	error?: boolean
 	icon?: IconType
-	theme?: Theme
 }
