@@ -5,7 +5,7 @@
  * @since 2022.07.04 Mon 00:44:22
  */
 
-import { createContext } from 'react';
+import { createContext, Dispatch, SetStateAction } from 'react';
 
 import { CollapseCardMode } from '../atom/CollapseCard/CollapseCard.types';
 
@@ -14,31 +14,31 @@ export type Theme = 'light' | 'dark'
 export interface AlpacaContextProps
 {
 	theme?: Theme
-	setTheme?: (theme?: Theme) => {}
+	setTheme?: Dispatch<SetStateAction<Theme | undefined>>
 }
 
 export interface AccordionContextProps
 {
 	isOpen?: boolean
-	setOpen?: (isOpen?: boolean) => {}
+	setOpen?: Dispatch<SetStateAction<boolean | undefined>>
 }
 
 export interface CollapseCardValueProps
 {
 	mode?: CollapseCardMode
-	isOpen?: boolean
+	isOpen?: Dispatch<SetStateAction<boolean | undefined>>
 }
 
 export interface CollapseCardContextProps
 {
 	value?: CollapseCardValueProps
-	setValue?: (value?: CollapseCardValueProps) => {}
+	setValue?: Dispatch<SetStateAction<CollapseCardValueProps | undefined>>
 }
 
 export interface ModalContextProps
 {
 	isOpen?: boolean
-	setOpen?: (isOpen: boolean) => {}
+	setOpen?: Dispatch<SetStateAction<boolean | undefined>>
 }
 
 export const AlpacaContext = createContext<AlpacaContextProps>({});
