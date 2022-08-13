@@ -6,7 +6,7 @@
  */
 
 import { ComponentMeta } from '@storybook/react';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useContext } from 'react';
 
 import { AlpacaContext } from '../../common';
 import Button from '../Button';
@@ -25,6 +25,8 @@ export default {
  */
 export function Example(): JSX.Element
 {
+	const { theme, setTheme } = useContext(AlpacaContext);
+
 	const style: CSSProperties = {
 		alignItems: 'center',
 		display: 'flex',
@@ -35,14 +37,10 @@ export function Example(): JSX.Element
 	};
 
 	return (
-		<AlpacaProvider value='light'>
-			<div style={style}>
-				<AlpacaContext.Consumer>
-					{({ theme, setTheme }) => <Button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>{theme}</Button>}
-				</AlpacaContext.Consumer>
+		<div style={style}>
+			<Button onClick={() => setTheme && setTheme(theme === 'light' ? 'dark' : 'light')}>{theme}</Button>
 
-				<p>위 버튼을 누르면 테마 모드가 변경됩니다.</p>
-			</div>
-		</AlpacaProvider>
+			<p>위 버튼을 누르면 테마 모드가 변경됩니다.</p>
+		</div>
 	);
 }

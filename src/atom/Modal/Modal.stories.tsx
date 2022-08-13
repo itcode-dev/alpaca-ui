@@ -7,11 +7,11 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { ModalProps } from './Modal.types';
 
-import { ModalContext } from '../../common';
+import { AlpacaContext, ModalContext } from '../../common';
 import styles from '../../stories.module.scss';
 import Button from '../Button';
 
@@ -31,10 +31,21 @@ const cn = classNames.bind(styles);
  *
  * @returns {ComponentStory<typeof Modal>} ComponentStory 객체
  */
-function getTemplate({ open, ...args }: ModalProps): ComponentStory<typeof Modal>
+function getTemplate({ open, theme, ...args }: ModalProps): ComponentStory<typeof Modal>
 {
+	const { setTheme } = useContext(AlpacaContext);
+
+	useEffect(() =>
+	{
+		// setTheme 메서드가 유효할 경우
+		if (setTheme)
+		{
+			setTheme(theme);
+		}
+	}, [ theme ]);
+
 	return (
-		<section className={cn('root', args.theme)} style={{ height: '100vh' }}>
+		<section className={cn('root')} style={{ height: '100vh' }}>
 			<div className={cn('row')}>
 				<Modal.Provider value={open}>
 					<ModalContext.Consumer>

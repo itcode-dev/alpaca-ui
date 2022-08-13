@@ -7,11 +7,12 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import Category from './Category';
 import { CategoryProps } from './Category.types';
 
+import { AlpacaContext } from '../../common';
 import styles from '../../stories.module.scss';
 
 export default {
@@ -24,17 +25,28 @@ const cn = classNames.bind(styles);
 /**
  * 템플릿 반환 메서드
  *
- * @param {CategoryProps} args: CategoryProps 객체
+ * @param {CategoryProps} param0: CategoryProps 객체
  *
  * @returns {ComponentStory<typeof Category>} ComponentStory 객체
  */
-function getTemplate(args: CategoryProps): ComponentStory<typeof Category>
+function getTemplate({ theme, ...props }: Omit<CategoryProps, 'header'>): ComponentStory<typeof Category>
 {
+	const { setTheme } = useContext(AlpacaContext);
+
+	useEffect(() =>
+	{
+		// setTheme 메서드가 유효할 경우
+		if (setTheme)
+		{
+			setTheme(theme);
+		}
+	}, [ theme ]);
+
 	return (
-		<section className={cn('root', args.theme)}>
+		<section className={cn('root')}>
 			<div className={cn('row')}>
 				<div style={{ width: 800 }}>
-					<Category {...args} />
+					<Category header={<h2>카테고리</h2>} {...props} />
 				</div>
 			</div>
 		</section>
@@ -89,6 +101,5 @@ Sandbox.args = {
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			simplify: false
 		}
-	],
-	title: <h3>🎉 카테고리</h3>
-} as CategoryProps;
+	]
+} as Omit<CategoryProps, 'header'>;

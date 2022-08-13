@@ -7,10 +7,11 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { ButtonProps } from './Button.types';
 
+import { AlpacaContext } from '../../common';
 import styles from '../../stories.module.scss';
 
 import Button from '.';
@@ -25,14 +26,25 @@ const cn = classNames.bind(styles);
 /**
  * 템플릿 반환 메서드
  *
- * @param {ButtonProps} args: ButtonProps 인터페이스
+ * @param {ButtonProps} param0: ButtonProps 인터페이스
  *
  * @returns {ComponentStory<typeof Button>} ComponentStory 객체
  */
-function getTemplate(args: ButtonProps): ComponentStory<typeof Button>
+function getTemplate({ theme, ...args }: ButtonProps): ComponentStory<typeof Button>
 {
+	const { setTheme } = useContext(AlpacaContext);
+
+	useEffect(() =>
+	{
+		// setTheme 메서드가 유효할 경우
+		if (setTheme)
+		{
+			setTheme(theme);
+		}
+	}, [ theme ]);
+
 	return (
-		<section className={cn('root', args.theme)}>
+		<section className={cn('root')}>
 			<div className={cn('row')}>
 				<Button {...args} />
 			</div>
