@@ -7,13 +7,12 @@
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Theme } from '../../common';
+import { WithThemeProps } from '../../common';
 
 export type CollapseCardMode = 'extra' | 'simple'
 
-export interface CollapseCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+export interface CollapseCardProps extends WithThemeProps<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>
 {
 	mode?: CollapseCardMode
 	isOpen?: boolean
-	theme?: Theme
 }
