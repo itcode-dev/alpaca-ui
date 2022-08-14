@@ -5,6 +5,14 @@
  * @since 2022.07.31 Sun 22:12:46
  */
 
+import { Theme } from './context';
+
+export type WithThemeProps<T> = T & {
+	theme?: Theme
+}
+
+export type NullableJSX = JSX.Element | null
+
 /**
  * 슬라이드 메서드
  *

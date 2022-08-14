@@ -9,9 +9,11 @@ import Modal from './Modal';
 import ModalBody from './ModalBody';
 import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';
+import ModalProvider from './ModalProvider';
 
 export default Object.assign(Modal, {
 	Body: ModalBody,
 	Footer: ModalFooter,
-	Header: ModalHeader
+	Header: ModalHeader,
+	Provider: ModalProvider
 });

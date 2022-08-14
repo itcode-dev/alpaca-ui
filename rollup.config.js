@@ -39,13 +39,13 @@ const config = [
 		],
 		plugins: [
 			nodeResolve({ extensions }),
-			commonjs({ include: 'node_modules/**' }),
-			peerDepsExternal(),
 			babel({
 				exclude: 'node_modules/**',
 				extensions,
 				include: [ 'src/**/*' ]
 			}),
+			commonjs({ include: 'node_modules/**' }),
+			peerDepsExternal(),
 			typescript({ tsconfig: './tsconfig-build.json' }),
 			postcss({
 				extract: false,

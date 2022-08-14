@@ -7,16 +7,15 @@
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Theme } from '../../common';
+import { WithThemeProps } from '../../common';
 
 export type SidebarDirection = 'left' | 'right'
 export type SidebarSize = 'small' | 'normal' | 'large' | 'xlarge'
 
-export interface SidebarProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+export interface SidebarProps extends WithThemeProps<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>>
 {
 	dimmer?: boolean
 	direction: SidebarDirection
 	open?: boolean
 	size?: SidebarSize
-	theme?: Theme
 }

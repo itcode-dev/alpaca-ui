@@ -7,12 +7,11 @@
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Theme } from '../../common';
+import { WithThemeProps } from '../../common';
 
-export interface ModalProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+export interface ModalProps extends WithThemeProps<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>
 {
 	dimmed?: boolean
 	forced?: boolean
 	open?: boolean
-	theme?: Theme
 }

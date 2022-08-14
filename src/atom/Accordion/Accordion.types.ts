@@ -7,12 +7,11 @@
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Theme } from '../../common';
+import { WithThemeProps } from '../../common';
 
-export interface AccordionProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+export interface AccordionProps extends WithThemeProps<DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>>
 {
 	open?: boolean
 	transparent?: boolean
 	round?: boolean
-	theme?: Theme
 }

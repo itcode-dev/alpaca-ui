@@ -6,12 +6,12 @@
  */
 
 import classNames from 'classnames/bind';
-import { MouseEvent, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { MouseEvent, useCallback, useContext, useEffect } from 'react';
 
 import styles from './Modal.module.scss';
 import { ModalProps } from './Modal.types';
 
-import { AlpacaContext, ModalContext, ModalContextProps } from '../../common';
+import { AlpacaContext, ModalContext } from '../../common';
 
 /**
  * Modal 컴포넌트 JSX 반환 메서드
@@ -27,29 +27,24 @@ export default function Modal({ dimmed, forced, open, theme, className, onClick,
 	const cn = classNames.bind(styles);
 
 	const { theme: ctxTheme } = useContext(AlpacaContext);
-
-	const [ isOpen, setOpen ] = useState<boolean | undefined>(open);
-
-	const valueMemo = useMemo<ModalContextProps>(() => ({
-		isOpen,
-		setOpen
-	}), [ isOpen, setOpen ]);
-
-	const { isOpen: isOpenMemo, setOpen: setOpenMemo } = valueMemo;
+	const { isOpen, setOpen } = useContext(ModalContext);
 
 	useEffect(() =>
 	{
-		setOpenMemo(open);
-	}, [ open, setOpenMemo ]);
+		if (setOpen)
+		{
+			setOpen(open);
+		}
+	}, [ open, setOpen ]);
 
 	const handleWrapperClick = useCallback(() =>
 	{
 		// 선택 강제가 아닐 경우
-		if (!forced)
+		if (!forced && setOpen)
 		{
-			setOpenMemo(false);
+			setOpen(false);
 		}
-	}, [ forced, setOpenMemo ]);
+	}, [ forced, setOpen ]);
 
 	const handleModalClick = useCallback((e: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) =>
 	{
@@ -63,19 +58,17 @@ export default function Modal({ dimmed, forced, open, theme, className, onClick,
 	}, [ onClick ]);
 
 	return (
-		<ModalContext.Provider value={valueMemo}>
-			<div
-				data-component='Modal'
-				className={cn('modal-wrapper', {
-					close: !isOpenMemo,
-					dimmed,
-					open: isOpenMemo
-				})}
-				onClick={handleWrapperClick}
-				{...(id && { id: `${id}-wrapper` })}
-			>
-				<div className={cn('modal', theme || ctxTheme || 'light', className)} onClick={handleModalClick} {...props} />
-			</div>
-		</ModalContext.Provider>
+		<div
+			data-component='Modal'
+			className={cn('modal-wrapper', {
+				close: !isOpen,
+				dimmed,
+				open: isOpen
+			})}
+			onClick={handleWrapperClick}
+			{...(id && { id: `${id}-wrapper` })}
+		>
+			<div className={cn('modal', theme || ctxTheme || 'light', className)} onClick={handleModalClick} {...props} />
+		</div>
 	);
 }

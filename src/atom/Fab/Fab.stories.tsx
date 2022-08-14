@@ -7,10 +7,11 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useContext, useEffect } from 'react';
 
 import { FabProps } from './Fab.types';
 
+import { AlpacaContext } from '../../common';
 import styles from '../../stories.module.scss';
 
 import Fab from '.';
@@ -25,15 +26,26 @@ const cn = classNames.bind(styles);
 /**
  * 템플릿 반환 메서드
  *
- * @param {FabProps} args: FabProps 인터페이스
+ * @param {FabProps} param0: FabProps 인터페이스
  *
  * @returns {ComponentStory<typeof Header>} ComponentStory 객체
  */
-function getTemplate(args: FabProps): ComponentStory<typeof Header>
+function getTemplate({ theme, ...props }: FabProps): ComponentStory<typeof Header>
 {
+	const { setTheme } = useContext(AlpacaContext);
+
+	useEffect(() =>
+	{
+		// setTheme 메서드가 유효할 경우
+		if (setTheme)
+		{
+			setTheme(theme);
+		}
+	}, [ theme ]);
+
 	return (
-		<section className={cn('root', args.theme, 'full')}>
-			<Fab {...args} />
+		<section className={cn('root', 'full')}>
+			<Fab {...props} />
 		</section>
 	);
 }

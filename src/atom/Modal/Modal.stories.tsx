@@ -7,10 +7,11 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
-import React, { useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { ModalProps } from './Modal.types';
 
+import { AlpacaContext, ModalContext } from '../../common';
 import styles from '../../stories.module.scss';
 import Button from '../Button';
 
@@ -30,12 +31,54 @@ const cn = classNames.bind(styles);
  *
  * @returns {ComponentStory<typeof Modal>} ComponentStory 객체
  */
-function getTemplate(args: ModalProps): ComponentStory<typeof Modal>
+function getTemplate({ open, theme, ...args }: ModalProps): ComponentStory<typeof Modal>
 {
+	const { setTheme } = useContext(AlpacaContext);
+
+	useEffect(() =>
+	{
+		// setTheme 메서드가 유효할 경우
+		if (setTheme)
+		{
+			setTheme(theme);
+		}
+	}, [ theme ]);
+
 	return (
-		<section className={cn('root', args.theme)} style={{ height: '100vh' }}>
+		<section className={cn('root')} style={{ height: '100vh' }}>
 			<div className={cn('row')}>
-				<Modal {...args} />
+				<Modal.Provider value={open}>
+					<ModalContext.Consumer>
+						{({ setOpen }) => (
+							<Modal {...args}>
+								<Modal.Header>
+									<h2>ModalHeader</h2>
+								</Modal.Header>
+
+								<Modal.Body>ModalBody</Modal.Body>
+
+								<Modal.Footer>
+									<div style={{
+										display: 'flex',
+										gap: 10,
+										justifyContent: 'end'
+									}}
+									>
+										<Button
+											border='round'
+											color='submit'
+											outline
+											onClick={() => setOpen && setOpen(false)}
+										>
+											확인
+										</Button>
+										<Button border='round' outline onClick={() => setOpen && setOpen(false)}>닫기</Button>
+									</div>
+								</Modal.Footer>
+							</Modal>
+						)}
+					</ModalContext.Consumer>
+				</Modal.Provider>
 			</div>
 		</section>
 	);
@@ -43,27 +86,6 @@ function getTemplate(args: ModalProps): ComponentStory<typeof Modal>
 
 export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
-	children: (
-		<>
-			<Modal.Header>
-				<h2>ModalHeader</h2>
-			</Modal.Header>
-
-			<Modal.Body>ModalBody</Modal.Body>
-
-			<Modal.Footer>
-				<div style={{
-					display: 'flex',
-					gap: 10,
-					justifyContent: 'end'
-				}}
-				>
-					<Button border='round' color='submit' outline>확인</Button>
-					<Button border='round' outline>닫기</Button>
-				</div>
-			</Modal.Footer>
-		</>
-	),
 	open: true,
 	theme: 'light'
 } as ModalProps;
@@ -75,53 +97,59 @@ Sandbox.args = {
  */
 export function Dimmed(): JSX.Element
 {
-	const [ isOpen, setOpen ] = useState(false);
-
 	return (
-		<section className={cn('root')} style={{ height: '100vh' }}>
-			<div className={cn('row')}>
-				<Button color='primary' onClick={() => setOpen(true)}>모달 호출 버튼</Button>
-			</div>
+		<Modal.Provider value={false}>
+			<ModalContext.Consumer>
+				{({ setOpen }) => (
+					<section className={cn('root')} style={{ height: '100vh' }}>
+						<div className={cn('row')}>
+							<Button color='primary' onClick={() => setOpen && setOpen(true)}>모달 호출 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<Modal open={isOpen} dimmed>
-				<Modal.Header>
-					<h2>ModalHeader</h2>
-				</Modal.Header>
+						<Modal dimmed>
+							<Modal.Header>
+								<h2>Dimmed Modal</h2>
+							</Modal.Header>
 
-				<Modal.Body>ModalBody</Modal.Body>
+							<Modal.Body>이 모달은 Dimmer가 적용됩니다.</Modal.Body>
 
-				<Modal.Footer>
-					<div style={{
-						display: 'flex',
-						gap: 10,
-						justifyContent: 'end'
-					}}
-					>
-						<Button border='round' outline onClick={() => setOpen(false)}>닫기</Button>
-					</div>
-				</Modal.Footer>
-			</Modal>
-		</section>
+							<Modal.Footer>
+								<div
+									style={{
+										display: 'flex',
+										gap: 10,
+										justifyContent: 'end'
+									}}
+								>
+									<Button border='round' outline onClick={() => setOpen && setOpen(false)}>닫기</Button>
+								</div>
+							</Modal.Footer>
+						</Modal>
+					</section>
+				)}
+			</ModalContext.Consumer>
+
+		</Modal.Provider>
 	);
 }
 
@@ -132,52 +160,58 @@ export function Dimmed(): JSX.Element
  */
 export function Forced(): JSX.Element
 {
-	const [ isOpen, setOpen ] = useState(false);
-
 	return (
-		<section className={cn('root')} style={{ height: '100vh' }}>
-			<div className={cn('row')}>
-				<Button color='primary' onClick={() => setOpen(true)}>모달 호출 버튼</Button>
-			</div>
+		<Modal.Provider value={false}>
+			<ModalContext.Consumer>
+				{({ setOpen }) => (
+					<section className={cn('root')} style={{ height: '100vh' }}>
+						<div className={cn('row')}>
+							<Button color='primary' onClick={() => setOpen && setOpen(true)}>모달 호출 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<div className={cn('row')}>
-				<Button>의미없는 버튼</Button>
-			</div>
+						<div className={cn('row')}>
+							<Button>의미없는 버튼</Button>
+						</div>
 
-			<Modal open={isOpen} forced>
-				<Modal.Header>
-					<h2>ModalHeader</h2>
-				</Modal.Header>
+						<Modal forced>
+							<Modal.Header>
+								<h2>Forced Modal</h2>
+							</Modal.Header>
 
-				<Modal.Body>ModalBody</Modal.Body>
+							<Modal.Body>이 모달은 Dimmer를 클릭해 끌 수 없으며, 반드시 제공된 버튼을 눌러야만 합니다.</Modal.Body>
 
-				<Modal.Footer>
-					<div style={{
-						display: 'flex',
-						gap: 10,
-						justifyContent: 'end'
-					}}
-					>
-						<Button border='round' outline onClick={() => setOpen(false)}>닫기</Button>
-					</div>
-				</Modal.Footer>
-			</Modal>
-		</section>
+							<Modal.Footer>
+								<div
+									style={{
+										display: 'flex',
+										gap: 10,
+										justifyContent: 'end'
+									}}
+								>
+									<Button border='round' outline onClick={() => setOpen && setOpen(false)}>닫기</Button>
+								</div>
+							</Modal.Footer>
+						</Modal>
+					</section>
+				)}
+			</ModalContext.Consumer>
+
+		</Modal.Provider>
 	);
 }

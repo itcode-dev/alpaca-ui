@@ -7,10 +7,11 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import { AccordionProps } from './Accordion.types';
 
+import { AlpacaContext } from '../../common';
 import styles from '../../stories.module.scss';
 
 import Accordion from '.';
@@ -25,17 +26,41 @@ const cn = classNames.bind(styles);
 /**
  * 템플릿 반환 메서드
  *
- * @param {AccordionProps} args: AccordionProps 객체
+ * @param {AccordionProps} param0: AccordionProps 객체
  *
  * @returns {ComponentStory<typeof Accordion>} ComponentStory 객체
  */
-function getTemplate(args: AccordionProps): ComponentStory<typeof Accordion>
+function getTemplate({ theme, ...args }: Omit<AccordionProps, 'children'>): ComponentStory<typeof Accordion>
 {
+	const { setTheme } = useContext(AlpacaContext);
+
+	useEffect(() =>
+	{
+		// setTheme 메서드가 유효할 경우
+		if (setTheme)
+		{
+			setTheme(theme);
+		}
+	}, [ theme ]);
+
 	return (
-		<section className={cn('root', args.theme)}>
+		<section className={cn('root')}>
 			<div className={cn('row')}>
 				<div style={{ width: '500px' }}>
-					<Accordion {...args} />
+					<Accordion {...args}>
+						<Accordion.Header>
+							테스트
+						</Accordion.Header>
+
+						<Accordion.Body style={{ padding: 20 }}>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
+						</Accordion.Body>
+					</Accordion>
 				</div>
 			</div>
 		</section>
@@ -44,26 +69,10 @@ function getTemplate(args: AccordionProps): ComponentStory<typeof Accordion>
 
 export const Sandbox = getTemplate.bind({});
 Sandbox.args = {
-	children: (
-		<>
-			<Accordion.Header>
-				테스트
-			</Accordion.Header>
-
-			<Accordion.Body style={{ padding: 20 }}>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione minus quidem dolorem unde vero, odit, sint itaque quos odio nulla iure possimus blanditiis quam magnam libero natus totam asperiores cupiditate.</p>
-			</Accordion.Body>
-		</>
-	),
 	round: false,
 	theme: 'light',
 	transparent: false
-} as AccordionProps;
+} as Omit<AccordionProps, 'children'>;
 
 /**
  * 방향 예시 JSX 반환 메서드

@@ -7,10 +7,9 @@
 
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import { Theme } from '../../common';
+import { WithThemeProps } from '../../common';
 
-export interface HeaderProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
+export interface HeaderProps extends WithThemeProps<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>>
 {
-	theme?: Theme
 	transparent?: boolean
 }

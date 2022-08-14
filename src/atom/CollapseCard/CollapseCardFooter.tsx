@@ -12,7 +12,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import styles from './CollapseCard.module.scss';
 import { CollapseCardFooterProps } from './CollapseCardFooter.types';
 
-import { CollapseCardContext } from '../../common';
+import { CollapseCardContext, NullableJSX } from '../../common';
 import Button from '../Button';
 
 /**
@@ -20,9 +20,9 @@ import Button from '../Button';
  *
  * @param {CollapseCardFooterProps} param0: CollapseCardFooterProps 인터페이스
  *
- * @returns {JSX.Element} JSX
+ * @returns {NullableJSX} NullableJSX
  */
-export default function CollapseCardFooter({ className, children, ...props }: CollapseCardFooterProps): JSX.Element
+export default function CollapseCardFooter({ className, children, ...props }: CollapseCardFooterProps): NullableJSX
 {
 	const cn = classNames.bind(styles);
 
@@ -58,7 +58,7 @@ export default function CollapseCardFooter({ className, children, ...props }: Co
 
 			{value?.mode === 'extra' ? (
 				<div className={cn('collapse-card-footer-two')}>
-					<Button border='circle' className={cn('collapse-card-button')} color='transparent' onClick={handleClick}>
+					<Button border='circle' className={cn('collapse-card-button')} transparent onClick={handleClick}>
 						<IoIosArrowDown className={cn('collapse-card-icon', { close: !value.isOpen, open: value.isOpen })} />
 					</Button>
 				</div>

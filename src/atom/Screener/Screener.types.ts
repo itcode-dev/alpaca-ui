@@ -5,7 +5,7 @@
  * @since 2022.06.30 Thu 21:35:11
  */
 
-import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
+import { CSSProperties, DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
 export type MediaType = 'image' | 'video'
 
@@ -17,9 +17,9 @@ export interface MediaProps
 
 export interface ScreenerProps extends Omit<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>, 'children'>
 {
-	title: string | number | HTMLElement
-	accent?: string | number | HTMLElement
-	subtitle?: string | number | HTMLElement
+	title: string | number | ReactNode
+	accent?: string | number | ReactNode
+	subtitle?: string | number | ReactNode
 	media: MediaProps | MediaProps[]
 	width?: CSSProperties['width']
 	height?: CSSProperties['height']
