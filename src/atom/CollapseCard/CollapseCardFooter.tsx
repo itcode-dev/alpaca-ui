@@ -58,7 +58,7 @@ export default function CollapseCardFooter({ className, children, ...props }: Co
 
 			{value?.mode === 'extra' ? (
 				<div className={cn('collapse-card-footer-two')}>
-					<Button border='circle' className={cn('collapse-card-button')} color='transparent' onClick={handleClick}>
+					<Button border='circle' className={cn('collapse-card-button')} transparent onClick={handleClick}>
 						<IoIosArrowDown className={cn('collapse-card-icon', { close: !value.isOpen, open: value.isOpen })} />
 					</Button>
 				</div>
