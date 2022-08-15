@@ -11,7 +11,7 @@ import { InfiniteScrollerProps } from './InfiniteScroller.types';
 
 import { InfiniteScrollerContext } from '../../common';
 
-export default function InfiniteScroller({ count = 0, total, scrollOffset, onEndScroll, ...props }: InfiniteScrollerProps): JSX.Element
+export default function InfiniteScroller({ count = 0, total, scrollOffset = 0, onEndScroll, ...props }: InfiniteScrollerProps): JSX.Element
 {
 	const [ countState, setCountState ] = useState(count);
 
@@ -25,17 +25,21 @@ export default function InfiniteScroller({ count = 0, total, scrollOffset, onEnd
 	const handleEndScroll = useCallback(() =>
 	{
 		// 최대값에 도달하지 않았을 경우
-		if (total > count)
+		if (total > countStateMemo)
 		{
 			const { scrollHeight, scrollTop, clientHeight } = document.documentElement;
 
 			if (scrollTop + clientHeight >= scrollHeight - scrollOffset)
 			{
 				setCountStateMemo((state) => state + 1);
-				onEndScroll(countStateMemo);
+
+				if (onEndScroll)
+				{
+					onEndScroll(countStateMemo);
+				}
 			}
 		}
-	}, [ count, total, scrollOffset, onEndScroll, countStateMemo, setCountStateMemo ]);
+	}, [ total, scrollOffset, onEndScroll, countStateMemo, setCountStateMemo ]);
 
 	useEffect(() =>
 	{
