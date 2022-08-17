@@ -47,6 +47,12 @@ export interface InfiniteScrollerContextProps
 	setCount?: Dispatch<SetStateAction<number | undefined>>
 }
 
+export interface SidebarContextProps
+{
+	isOpen?: boolean
+	setOpen?: Dispatch<SetStateAction<boolean | undefined>>
+}
+
 export const AlpacaContext = createContext<AlpacaContextProps>({});
 
 export const AccordionContext = createContext<AccordionContextProps>({});
@@ -56,3 +62,5 @@ export const CollapseCardContext = createContext<CollapseCardContextProps>({ val
 export const ModalContext = createContext<ModalContextProps>({});
 
 export const InfiniteScrollerContext = createContext<InfiniteScrollerContextProps>({});
+
+export const SidebarContext = createContext<SidebarContextProps>({});
