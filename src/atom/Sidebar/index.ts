@@ -6,5 +6,6 @@
  */
 
 import Sidebar from './Sidebar';
+import SidebarProvider from './SidebarProvider';
 
-export default Sidebar;
+export default Object.assign(Sidebar, { Provider: SidebarProvider });
