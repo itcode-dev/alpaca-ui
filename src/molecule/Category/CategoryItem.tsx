@@ -9,7 +9,7 @@ import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
-import styles from './CategoryItem.module.scss';
+import styles from './Category.module.scss';
 import { CategoryItemProps } from './CategoryItem.types';
 
 /**
