@@ -16,6 +16,7 @@ import { AlpacaContext } from '../../common';
 import styles from '../../stories.module.scss';
 
 export default {
+	argTypes: { header: { control: false } },
 	component: Category,
 	title: 'Moleclue/Category'
 } as ComponentMeta<typeof Category>;
@@ -101,5 +102,6 @@ Sandbox.args = {
 			image: 'https://static-s.aa-cdn.net/img/gp/20600012710478/8HYiPrKqjM1eOBCAnYOkvZHfl1gho73lYeS0N3nC0Pu8VEclx4qBlqShfmyo7Mx7aA=s300?v=1',
 			simplify: false
 		}
-	]
+	],
+	useRefresh: true
 } as Omit<CategoryProps, 'header'>;
