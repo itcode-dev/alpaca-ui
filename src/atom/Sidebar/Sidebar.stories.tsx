@@ -30,7 +30,7 @@ const cn = classNames.bind(styles);
  *
  * @returns {ComponentStory<typeof Sidebar>} ComponentStory 객체
  */
-function getTemplate({ theme, ...props }: SidebarProps): ComponentStory<typeof Sidebar>
+function getTemplate({ open, theme, ...props }: SidebarProps): ComponentStory<typeof Sidebar>
 {
 	const { setTheme } = useContext(AlpacaContext);
 
@@ -46,7 +46,9 @@ function getTemplate({ theme, ...props }: SidebarProps): ComponentStory<typeof S
 	return (
 		<section className={cn('root')}>
 			<div className={cn('row')}>
-				<Sidebar {...props} />
+				<Sidebar.Provider value={open}>
+					<Sidebar {...props} />
+				</Sidebar.Provider>
 			</div>
 		</section>
 	);
