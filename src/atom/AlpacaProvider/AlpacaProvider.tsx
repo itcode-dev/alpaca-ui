@@ -49,7 +49,7 @@ export default function AlpacaProvider({ value, children }: AlpacaProviderProps)
 			tag.classList.remove('dark');
 		}
 
-		tag.classList.add(valueMemo.theme || 'dark');
+		tag.classList.add(valueMemo.theme || 'light');
 	}, [ valueMemo ]);
 
 	return (
