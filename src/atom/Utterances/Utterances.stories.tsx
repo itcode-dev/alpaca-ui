@@ -16,6 +16,10 @@ import styles from '../../stories.module.scss';
 import Utterances from '.';
 
 export default {
+	argTypes: {
+		issueTerm: { control: false },
+		repo: { control: false }
+	},
 	component: Utterances,
 	title: 'Atom/Utterances'
 } as ComponentMeta<typeof Utterances>;
@@ -29,7 +33,7 @@ const cn = classNames.bind(styles);
  *
  * @returns {ComponentStory<typeof Utterances>} ComponentStory 객체
  */
-function getTemplate(args: UtterancesProps): ComponentStory<typeof Utterances>
+function getTemplate(args: Omit<UtterancesProps, 'repo' | 'issueTerm'>): ComponentStory<typeof Utterances>
 {
 	return (
 		<section className={cn('root')}>
@@ -41,4 +45,4 @@ function getTemplate(args: UtterancesProps): ComponentStory<typeof Utterances>
 }
 
 export const Sandbox = getTemplate.bind({});
-Sandbox.args = {} as Omit<UtterancesProps, 'repo', 'issueTerm'>;
+Sandbox.args = { theme: 'github-light' } as Omit<UtterancesProps, 'repo' | 'issueTerm'>;
