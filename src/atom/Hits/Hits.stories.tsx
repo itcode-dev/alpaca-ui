@@ -16,6 +16,11 @@ import styles from '../../stories.module.scss';
 import Hits from '.';
 
 export default {
+	argTypes: {
+		bgCount: { control: { type: 'color' } },
+		bgTitle: { control: { type: 'color' } },
+		iconColor: { control: { type: 'color' } }
+	},
 	component: Hits,
 	title: 'Atom/Hits'
 } as ComponentMeta<typeof Hits>;
