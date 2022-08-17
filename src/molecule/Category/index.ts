@@ -6,5 +6,6 @@
  */
 
 import Category from './Category';
+import CategoryItem from './CategoryItem';
 
-export default Category;
+export default Object.assign(Category, { Item: CategoryItem });
