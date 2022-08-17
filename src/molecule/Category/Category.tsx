@@ -10,10 +10,10 @@ import { CSSProperties, useState } from 'react';
 
 import styles from './Category.module.scss';
 import { CategoryProps } from './Category.types';
+import CategoryItem from './CategoryItem';
+import { CategoryItemProps } from './CategoryItem.types';
 
 import Accordion from '../../atom/Accordion';
-import CategoryItem from '../../atom/CategoryItem';
-import { CategoryItemProps } from '../../atom/CategoryItem/CategoryItem.types';
 
 /**
  * Category 컴포넌트 JSX 반환 메서드
