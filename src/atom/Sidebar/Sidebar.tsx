@@ -6,12 +6,12 @@
  */
 
 import classNames from 'classnames/bind';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
 import styles from './Sidebar.module.scss';
 import { SidebarProps } from './Sidebar.types';
 
-import { AlpacaContext } from '../../common';
+import { AlpacaContext, SidebarContext } from '../../common';
 
 /**
  * Sidebar 컴포넌트 JSX 반환 메서드
@@ -20,15 +20,22 @@ import { AlpacaContext } from '../../common';
  *
  * @returns {JSX.Element} JSX
  */
-export default function Sidebar({ dimmer, direction = 'right', open, size = 'normal', theme, children, className, id, ...props }: SidebarProps): JSX.Element
+export default function Sidebar({ dimmer, direction = 'right', open, size = 'normal', theme, children, className, ...props }: SidebarProps): JSX.Element
 {
+	const { id } = props;
+
 	const cn = classNames.bind(styles);
 
 	const { theme: ctxTheme } = useContext(AlpacaContext);
+	const { isOpen, setOpen } = useContext(SidebarContext);
 
-	const [ isOpen, setOpen ] = useState(open);
-
-	useEffect(() => setOpen(open), [ open ]);
+	useEffect(() =>
+	{
+		if (setOpen)
+		{
+			setOpen(open);
+		}
+	}, [ open, setOpen ]);
 
 	const handleWrapperClick = () =>
 	{
@@ -41,7 +48,7 @@ export default function Sidebar({ dimmer, direction = 'right', open, size = 'nor
 
 	return (
 		<aside {...(id && { id: `${id}-wrapper` })} data-component='Sidebar'>
-			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctxTheme || 'light', className)} id={id} {...props}>
+			<div className={cn('sidebar', direction, { close: !isOpen, open: isOpen }, size, theme || ctxTheme || 'light', className)} {...props}>
 				{children}
 			</div>
 
